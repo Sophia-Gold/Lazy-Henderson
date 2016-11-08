@@ -1,10 +1,7 @@
-(ns Henderson-Escher.core)
-
-(enable-console-print!)
+(ns Lazy-Henderson.core)
 
 ;; FRAME CONSTRUCTORS AND SELECTORS
 
-;; vector version:
 (defn make-vect [x y]
   (vector x y))
 (defn xcor-vect [vect]
