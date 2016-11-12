@@ -80,7 +80,6 @@
 ;; DRAWING FUNCTIONS
 
 (defn transform-painter [frame ctx]
-  ;; (do (println (interpose "," frame))
   (apply #(.setTransform ctx %1 %2 %3 %4 %5 %6) frame))
 
 (defn draw-painter [segment-list ctx ]
