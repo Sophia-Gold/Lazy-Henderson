@@ -1,5 +1,7 @@
 (ns Lazy-Henderson.core)
 
+(enable-console-print!)
+
 ;; FRAME CONSTRUCTORS AND SELECTORS
 
 (defn make-vect [x y]
@@ -29,16 +31,16 @@
 (defn end-segment [segment]
   (peek segment))
 
-(defn make-frame [origin edge1 edge2]
+(defn make-frame [edge1 edge2 origin]
   (vector
-   (xcor-vect origin) (ycor-vect origin)
    (xcor-vect edge1) (ycor-vect edge1)
-   (xcor-vect edge2) (ycor-vect edge2)))
-(defn origin-frame [frame]
-  (subvec frame 0 2))
+   (xcor-vect edge2) (ycor-vect edge2)
+   (xcor-vect origin) (ycor-vect origin)))
 (defn edge1-frame [frame]
-  (subvec frame 2 4))
+  (subvec frame 0 2))
 (defn edge2-frame [frame]
+  (subvec frame 2 4))
+(defn origin-frame [frame]
   (subvec frame 4 6))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -78,15 +80,8 @@
 ;; DRAWING FUNCTIONS
 
 (defn transform-painter [frame ctx]
-  (.setTransform
-   ctx
-   (xcor-vect (edge1-frame frame))
-   (ycor-vect (edge1-frame frame))
-   (xcor-vect (edge2-frame frame))
-   (ycor-vect (edge2-frame frame))
-   (xcor-vect (origin-frame frame))
-   (ycor-vect (origin-frame frame))))
-
+  ;; (do (println (interpose "," frame))
+  (apply #(.setTransform ctx %1 %2 %3 %4 %5 %6) frame))
 
 (defn draw-painter [segment-list ctx ]
   (run!
@@ -106,16 +101,15 @@
 (defn painter [image]
   @image
   (swap! image update :frame conj
-         (make-frame (make-vect 0 400)
-                     (make-vect 400 0)
-                     (make-vect 0 -400)))
+         (make-frame (make-vect 400 0)
+                     (make-vect 0 -400)
+                     (make-vect 0 400)))
   image)
 
 (defn draw [image]
   (let [ctx ( @image :ctx)
         segment-list (@image :segment-list)]
     (defn p [frame]
-      ;; (println frame)
       (transform-painter frame ctx)
       (draw-painter segment-list ctx)
       (swap! image update :frame pop))
@@ -131,14 +125,14 @@
     @image
     (swap! image update :frame pop)
     (swap! image update :frame conj
-           (make-frame (make-vect 
-                          (xcor-vect (origin-frame old-frame))
-                          (+ (ycor-vect (origin-frame old-frame))
-                             (ycor-vect (edge2-frame old-frame))))
-                         (edge1-frame old-frame)
-                         (make-vect
-                          (xcor-vect (edge2-frame old-frame))
-                          (- (ycor-vect (edge2-frame old-frame)))))))
+           (make-frame (edge1-frame old-frame)
+                       (make-vect
+                        (xcor-vect (edge2-frame old-frame))
+                        (- (ycor-vect (edge2-frame old-frame))))
+                       (make-vect 
+                        (xcor-vect (origin-frame old-frame))
+                        (+ (ycor-vect (origin-frame old-frame))
+                           (ycor-vect (edge2-frame old-frame)))))))
   (#(mapv flip-vert-frame %&)
    (peek
     (@image :frame)))
@@ -149,14 +143,14 @@
     @image
     (swap! image update :frame pop)
     (swap! image update :frame conj
-           (make-frame (make-vect 
+           (make-frame (make-vect
+                        (- (xcor-vect (edge1-frame old-frame)))
+                        (ycor-vect (edge1-frame old-frame)))
+                       (edge2-frame old-frame)
+                       (make-vect 
                         (+ (xcor-vect (origin-frame old-frame))
                            (xcor-vect (edge1-frame old-frame)))
-                        (ycor-vect (origin-frame old-frame)))
-                       (make-vect
-                          (- (xcor-vect (edge1-frame old-frame)))
-                          (ycor-vect (edge1-frame old-frame)))
-                       (edge2-frame old-frame))))
+                        (ycor-vect (origin-frame old-frame))))))
   (#(mapv flip-horiz-frame %&)
    (peek
     (@image :frame)))
@@ -167,16 +161,16 @@
     @image
     (swap! image update :frame pop)
     (swap! image update :frame conj
-           (make-frame (make-vect 
-                        (xcor-vect (origin-frame old-frame))
-                        (+ (ycor-vect (origin-frame old-frame))
-                           (ycor-vect (edge2-frame old-frame))))  
-                       (make-vect
+           (make-frame (make-vect
                         (ycor-vect (edge1-frame old-frame))
                         (xcor-vect (edge1-frame old-frame)))
-                         (make-vect
-                          (- (ycor-vect (edge2-frame old-frame)))
-                          (xcor-vect (edge2-frame old-frame))))))
+                       (make-vect
+                        (- (ycor-vect (edge2-frame old-frame)))
+                        (xcor-vect (edge2-frame old-frame)))
+                       (make-vect 
+                        (xcor-vect (origin-frame old-frame))
+                        (+ (ycor-vect (origin-frame old-frame))
+                           (ycor-vect (edge2-frame old-frame)))))))
   (#(mapv rotate90-frame %&)
    (peek
     (@image :frame)))
@@ -192,15 +186,15 @@
       (let [old-frame1 (first frames)
             old-frame2 (fnext frames)]
     (let [new-frame1 (make-frame 
-                      (origin-frame old-frame1)
                       (scale-vect 0.5 (edge1-frame old-frame1))
-                      (edge2-frame old-frame1))        
+                      (edge2-frame old-frame1)
+                      (origin-frame old-frame1))
           new-frame2 (make-frame
+                      (scale-vect 0.5 (edge1-frame old-frame2))
+                      (edge2-frame old-frame2)
                       (add-vect
                        (origin-frame old-frame2)
-                       (scale-vect 0.5 (edge1-frame old-frame2)))
-                      (scale-vect 0.5 (edge1-frame old-frame2))
-                      (edge2-frame old-frame2))]
+                       (scale-vect 0.5 (edge1-frame old-frame2))))]
           @image
           (swap! image update :frame pop)
           (swap! image update :frame pop)
@@ -216,17 +210,18 @@
       (let [old-frame1 (first frames)
             old-frame2 (fnext frames)]
       (let [new-frame1 (make-frame 
-                        (add-vect 
-                         (origin-frame old-frame1) 
-                         (scale-vect 0.0 (edge2-frame old-frame1)))
                         (edge1-frame old-frame1)
-                        (scale-vect 0.5 (edge2-frame old-frame1)))
+                        (scale-vect 0.5 (edge2-frame old-frame1))
+                        (origin-frame old-frame1))
+                        ;; (add-vect 
+                        ;;  (origin-frame old-frame1) 
+                        ;;  (scale-vect 0.5 (edge2-frame old-frame1))))
             new-frame2 (make-frame 
+                        (edge1-frame old-frame2)
+                        (scale-vect 0.5 (edge2-frame old-frame2))
                         (add-vect 
                          (origin-frame old-frame2) 
-                         (scale-vect 0.5 (edge2-frame old-frame2)))
-                        (edge1-frame old-frame2)
-                        (scale-vect 0.5 (edge2-frame old-frame2)))]
+                         (scale-vect 0.5 (edge2-frame old-frame2))))]
           @image
           (swap! image update :frame pop)
           (swap! image update :frame pop)
