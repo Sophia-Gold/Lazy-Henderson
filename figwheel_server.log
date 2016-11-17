@@ -55582,3 +55582,940 @@ notifying browser that file changed:  out/Lazy_Henderson/core.js
 [32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.888 seconds.[0m
 notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
 notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.451 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:146  column:1  ----[0m
+
+  [1mEOF while reading, starting at line 146 and column 1[0m
+
+  [36m144[0m  [36m  image)[0m
+  [36m145[0m  [36m[0m
+  [33m146[0m  [1m(defn flip-horiz [image][0m
+  [0m   [0m  [33m^--- EOF while reading, starting at line 146 and column 1[0m
+  [36m147[0m  [36m  (defn flip-horiz-frame [old-frame][0m
+  [36m148[0m  [36m    @image[0m
+  [36m149[0m  [36m    (swap! image update :frame pop)[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.352 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:146  column:1  ----[0m
+
+  [1mEOF while reading, starting at line 146 and column 1[0m
+
+  [36m144[0m  [36m  image)[0m
+  [36m145[0m  [36m[0m
+  [33m146[0m  [1m(defn flip-horiz [image][0m
+  [0m   [0m  [33m^--- EOF while reading, starting at line 146 and column 1[0m
+  [36m147[0m  [36m  (defn flip-horiz-frame [old-frame][0m
+  [36m148[0m  [36m    @image[0m
+  [36m149[0m  [36m    (swap! image update :frame pop)[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.428 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:128  column:1  ----[0m
+
+  [1mEOF while reading, starting at line 128 and column 1[0m
+
+  [36m126[0m  [36m;TRANSFORMATIONS[0m
+  [36m127[0m  [36m[0m
+  [33m128[0m  [1m(defn flip-vert [image][0m
+  [0m   [0m  [33m^--- EOF while reading, starting at line 128 and column 1[0m
+  [36m129[0m  [36m  (defn flip-vert-frame [old-frame][0m
+  [36m130[0m  [36m    @image[0m
+  [36m131[0m  [36m    (swap! image update :frame pop)[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.369 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:128  column:1  ----[0m
+
+  [1mEOF while reading, starting at line 128 and column 1[0m
+
+  [36m126[0m  [36m;TRANSFORMATIONS[0m
+  [36m127[0m  [36m[0m
+  [33m128[0m  [1m(defn flip-vert [image][0m
+  [0m   [0m  [33m^--- EOF while reading, starting at line 128 and column 1[0m
+  [36m129[0m  [36m  (defn flip-vert-frame [old-frame][0m
+  [36m130[0m  [36m    @image[0m
+  [36m131[0m  [36m    (swap! image update :frame pop)[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.459 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:129  column:3  ----[0m
+
+  [1mEOF while reading, starting at line 129 and column 3[0m
+
+  [36m128[0m  [36m(defn flip-vert [image][0m
+  [33m129[0m  [1m  (defn flip-vert-frame [old-frame][0m
+  [0m   [0m  [33m  ^--- EOF while reading, starting at line 129 and column 3[0m
+  [36m130[0m  [36m    @image[0m
+  [36m131[0m  [36m    (swap! image update :frame pop)[0m
+  [36m132[0m  [36m    (swap! image update :frame conj[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.405 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:133  column:12  ----[0m
+
+  [1mEOF while reading, starting at line 133 and column 12[0m
+
+  [36m131[0m  [36m(swap! image update :frame pop)[0m
+  [36m132[0m  [36m(swap! image update :frame conj[0m
+  [33m133[0m  [1m       (make-frame (make-vect[0m
+  [0m   [0m  [33m       ^--- EOF while reading, starting at line 133 and column 12[0m
+  [36m134[0m  [36m                    [0m
+  [36m135[0m  [36m                   (edge1-frame old-frame)[0m
+  [36m136[0m  [36m                   (make-vect[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.41 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:133  column:12  ----[0m
+
+  [1mEOF while reading, starting at line 133 and column 12[0m
+
+  [36m131[0m  [36m(swap! image update :frame pop)[0m
+  [36m132[0m  [36m(swap! image update :frame conj[0m
+  [33m133[0m  [1m       (make-frame (make-vect[0m
+  [0m   [0m  [33m       ^--- EOF while reading, starting at line 133 and column 12[0m
+  [36m134[0m  [36m                    [0m
+  [36m135[0m  [36m                   (edge1-frame old-frame)[0m
+  [36m136[0m  [36m                   (make-vect[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.436 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:132  column:5  ----[0m
+
+  [1mEOF while reading, starting at line 132 and column 5[0m
+
+  [36m130[0m  [36m@image[0m
+  [36m131[0m  [36m(swap! image update :frame pop)[0m
+  [33m132[0m  [1m(swap! image update :frame conj[0m
+  [0m   [0m  [33m^--- EOF while reading, starting at line 132 and column 5[0m
+  [36m133[0m  [36m       (make-frame (edge1-frame old-frame)[0m
+  [36m134[0m  [36m                   (make-vect[0m
+  [36m135[0m  [36m                    (xcor-vect (edge2-frame old-frame))[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.39 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:132  column:5  ----[0m
+
+  [1mEOF while reading, starting at line 132 and column 5[0m
+
+  [36m130[0m  [36m@image[0m
+  [36m131[0m  [36m(swap! image update :frame pop)[0m
+  [33m132[0m  [1m(swap! image update :frame conj[0m
+  [0m   [0m  [33m^--- EOF while reading, starting at line 132 and column 5[0m
+  [36m133[0m  [36m       (make-frame (edge1-frame old-frame)[0m
+  [36m134[0m  [36m                   (make-vect[0m
+  [36m135[0m  [36m                    (xcor-vect (edge2-frame old-frame))[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.921 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.778 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.886 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.849 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.978 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.733 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.886 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.912 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.81 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.661 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.74 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.657 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.85 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.912 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 1.087 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.792 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:39  column:1  ----[0m
+
+  [1medge1-frame at line 37 is being replaced[0m
+
+  [36m35[0m  [36m   (xcor-vect edge2) (ycor-vect edge2)[0m
+  [36m36[0m  [36m   (xcor-vect origin) (ycor-vect origin)))[0m
+  [36m37[0m  [36m(defn edge1-frame [frame][0m
+  [36m38[0m  [36m  (subvec frame 0 2))[0m
+  [33m39[0m  [1m(defn edge1-frame [frame][0m
+  [0m  [0m  [33m^--- edge1-frame at line 37 is being replaced[0m
+  [36m40[0m  [36m  (subvec frame 2 4))[0m
+  [36m41[0m  [36m(defn edge2-frame [frame][0m
+  [36m42[0m  [36m  (subvec frame 4 6))[0m
+  [36m43[0m  [36m[0m
+  [36m44[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:87  column:16  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m83[0m  [36m   (xcor-vect (edge1-frame frame))[0m
+  [36m84[0m  [36m   (ycor-vect (edge1-frame frame))[0m
+  [36m85[0m  [36m   (xcor-vect (edge2-frame frame))[0m
+  [36m86[0m  [36m   (ycor-vect (edge2-frame frame))[0m
+  [33m87[0m  [1m   (xcor-vect (origin-frame frame))[0m
+  [0m  [0m  [33m               ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m88[0m  [36m   (ycor-vect (origin-frame frame))))[0m
+  [36m89[0m  [36m[0m
+  [36m90[0m  [36m[0m
+  [36m91[0m  [36m(defn draw-painter [segment-list ctx ][0m
+  [36m92[0m  [36m  (run![0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:88  column:16  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m84[0m  [36m   (ycor-vect (edge1-frame frame))[0m
+  [36m85[0m  [36m   (xcor-vect (edge2-frame frame))[0m
+  [36m86[0m  [36m   (ycor-vect (edge2-frame frame))[0m
+  [36m87[0m  [36m   (xcor-vect (origin-frame frame))[0m
+  [33m88[0m  [1m   (ycor-vect (origin-frame frame))))[0m
+  [0m  [0m  [33m               ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m89[0m  [36m[0m
+  [36m90[0m  [36m[0m
+  [36m91[0m  [36m(defn draw-painter [segment-list ctx ][0m
+  [36m92[0m  [36m  (run![0m
+  [36m93[0m  [36m   (fn [segment][0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:138  column:37  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m134[0m  [36m                     (make-vect[0m
+  [36m135[0m  [36m                      (xcor-vect (edge2-frame old-frame))[0m
+  [36m136[0m  [36m                      (- (ycor-vect (edge2-frame old-frame))))[0m
+  [36m137[0m  [36m                     (make-vect [0m
+  [33m138[0m  [1m                      (xcor-vect (origin-frame old-frame))[0m
+  [0m   [0m  [33m                                  ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m139[0m  [36m                      (+ (ycor-vect (origin-frame old-frame))[0m
+  [36m140[0m  [36m                         (ycor-vect (edge2-frame old-frame)))))))[0m
+  [36m141[0m  [36m(#(mapv flip-vert-frame %&)[0m
+  [36m142[0m  [36m (peek[0m
+  [36m143[0m  [36m  (@image :frame)))[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:139  column:40  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m135[0m  [36m                      (xcor-vect (edge2-frame old-frame))[0m
+  [36m136[0m  [36m                      (- (ycor-vect (edge2-frame old-frame))))[0m
+  [36m137[0m  [36m                     (make-vect [0m
+  [36m138[0m  [36m                      (xcor-vect (origin-frame old-frame))[0m
+  [33m139[0m  [1m                      (+ (ycor-vect (origin-frame old-frame))[0m
+  [0m   [0m  [33m                                     ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m140[0m  [36m                         (ycor-vect (edge2-frame old-frame)))))))[0m
+  [36m141[0m  [36m(#(mapv flip-vert-frame %&)[0m
+  [36m142[0m  [36m (peek[0m
+  [36m143[0m  [36m  (@image :frame)))[0m
+  [36m144[0m  [36mimage)[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:156  column:40  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m152[0m  [36m                      (- (xcor-vect (edge1-frame old-frame)))[0m
+  [36m153[0m  [36m                      (ycor-vect (edge1-frame old-frame)))[0m
+  [36m154[0m  [36m                     (edge2-frame old-frame)[0m
+  [36m155[0m  [36m                     (make-vect [0m
+  [33m156[0m  [1m                      (+ (xcor-vect (origin-frame old-frame))[0m
+  [0m   [0m  [33m                                     ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m157[0m  [36m                         (xcor-vect (edge1-frame old-frame)))[0m
+  [36m158[0m  [36m                      (ycor-vect (origin-frame old-frame))))))[0m
+  [36m159[0m  [36m(#(mapv flip-horiz-frame %&)[0m
+  [36m160[0m  [36m (peek[0m
+  [36m161[0m  [36m  (@image :frame)))[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:158  column:37  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m154[0m  [36m                     (edge2-frame old-frame)[0m
+  [36m155[0m  [36m                     (make-vect [0m
+  [36m156[0m  [36m                      (+ (xcor-vect (origin-frame old-frame))[0m
+  [36m157[0m  [36m                         (xcor-vect (edge1-frame old-frame)))[0m
+  [33m158[0m  [1m                      (ycor-vect (origin-frame old-frame))))))[0m
+  [0m   [0m  [33m                                  ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m159[0m  [36m(#(mapv flip-horiz-frame %&)[0m
+  [36m160[0m  [36m (peek[0m
+  [36m161[0m  [36m  (@image :frame)))[0m
+  [36m162[0m  [36mimage)[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:173  column:37  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m169[0m  [36m(make-frame (make-vect[0m
+  [36m170[0m  [36m             (- (ycor-vect (edge2-frame old-frame)))[0m
+  [36m171[0m  [36m             (xcor-vect (edge2-frame old-frame)))[0m
+  [36m172[0m  [36m            (make-vect [0m
+  [33m173[0m  [1m             (xcor-vect (origin-frame old-frame))[0m
+  [0m   [0m  [33m                         ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m174[0m  [36m             (+ (ycor-vect (origin-frame old-frame))[0m
+  [36m175[0m  [36m                (ycor-vect (edge2-frame old-frame))))[0m
+  [36m176[0m  [36m            (make-vect[0m
+  [36m177[0m  [36m             (ycor-vect (edge1-frame old-frame))[0m
+  [36m178[0m  [36m             (xcor-vect (edge1-frame old-frame))))))[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:174  column:40  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m170[0m  [36m                      (- (ycor-vect (edge2-frame old-frame)))[0m
+  [36m171[0m  [36m                      (xcor-vect (edge2-frame old-frame)))[0m
+  [36m172[0m  [36m                     (make-vect [0m
+  [36m173[0m  [36m                      (xcor-vect (origin-frame old-frame))[0m
+  [33m174[0m  [1m                      (+ (ycor-vect (origin-frame old-frame))[0m
+  [0m   [0m  [33m                                     ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m175[0m  [36m                         (ycor-vect (edge2-frame old-frame))))[0m
+  [36m176[0m  [36m                     (make-vect[0m
+  [36m177[0m  [36m                      (ycor-vect (edge1-frame old-frame))[0m
+  [36m178[0m  [36m                      (xcor-vect (edge1-frame old-frame))))))[0m
+  [36m179[0m  [36m(#(mapv rotate90-frame %&)[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:196  column:24  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m192[0m  [36m        old-frame2 (fnext frames)][0m
+  [36m193[0m  [36m(let [new-frame1 (make-frame [0m
+  [36m194[0m  [36m                  (scale-vect 0.5 (edge1-frame old-frame1))[0m
+  [36m195[0m  [36m                  (edge2-frame old-frame1)[0m
+  [33m196[0m  [1m                  (origin-frame old-frame1))[0m
+  [0m   [0m  [33m                   ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m197[0m  [36m      new-frame2 (make-frame[0m
+  [36m198[0m  [36m                  (scale-vect 0.5 (edge1-frame old-frame2))[0m
+  [36m199[0m  [36m                  (edge2-frame old-frame2)[0m
+  [36m200[0m  [36m                  (add-vect[0m
+  [36m201[0m  [36m                   (origin-frame old-frame2)[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:201  column:25  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m197[0m  [36mnew-frame2 (make-frame[0m
+  [36m198[0m  [36m            (scale-vect 0.5 (edge1-frame old-frame2))[0m
+  [36m199[0m  [36m            (edge2-frame old-frame2)[0m
+  [36m200[0m  [36m            (add-vect[0m
+  [33m201[0m  [1m             (origin-frame old-frame2)[0m
+  [0m   [0m  [33m              ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m202[0m  [36m             (scale-vect 0.5 (edge1-frame old-frame2))))][0m
+  [36m203[0m  [36m@image[0m
+  [36m204[0m  [36m(swap! image update :frame pop)[0m
+  [36m205[0m  [36m(swap! image update :frame pop)[0m
+  [36m206[0m  [36m(swap! image update :frame conj new-frame1)[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:221  column:27  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m217[0m  [36m(let [new-frame1 (make-frame [0m
+  [36m218[0m  [36m                  (edge1-frame old-frame1)[0m
+  [36m219[0m  [36m                  (scale-vect 0.5 (edge2-frame old-frame1))[0m
+  [36m220[0m  [36m                  (add-vect [0m
+  [33m221[0m  [1m                   (origin-frame old-frame1) [0m
+  [0m   [0m  [33m                    ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m222[0m  [36m                   (scale-vect 0.0 (edge2-frame old-frame1))))[0m
+  [36m223[0m  [36m      new-frame2 (make-frame [0m
+  [36m224[0m  [36m                  (edge1-frame old-frame2)[0m
+  [36m225[0m  [36m                  (scale-vect 0.5 (edge2-frame old-frame2))[0m
+  [36m226[0m  [36m                  (add-vect [0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:227  column:27  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/origin-frame[0m
+
+  [36m223[0m  [36m  new-frame2 (make-frame [0m
+  [36m224[0m  [36m              (edge1-frame old-frame2)[0m
+  [36m225[0m  [36m              (scale-vect 0.5 (edge2-frame old-frame2))[0m
+  [36m226[0m  [36m              (add-vect [0m
+  [33m227[0m  [1m               (origin-frame old-frame2) [0m
+  [0m   [0m  [33m                ^--- Use of undeclared Var Lazy-Henderson.core/origin-frame[0m
+  [36m228[0m  [36m               (scale-vect 0.5 (edge2-frame old-frame2))))][0m
+  [36m229[0m  [36m@image[0m
+  [36m230[0m  [36m(swap! image update :frame pop)[0m
+  [36m231[0m  [36m(swap! image update :frame pop)[0m
+  [36m232[0m  [36m(swap! image update :frame conj new-frame1)[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.925 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.707 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.77 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.772 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.79 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 1.019 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.791 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.919 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.773 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.717 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.648 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.73 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.764 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.818 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.749 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.775 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.795 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.862 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.768 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.898 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.726 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.701 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.743 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.33 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:84  column:39  ----[0m
+
+  [1mUnmatched delimiter )[0m
+
+  [36m82[0m  [36m(defn transform-painter [frame ctx][0m
+  [36m83[0m  [36m  ;; (do (println (interpose "," frame))[0m
+  [33m84[0m  [1m  (apply js/.setTransform ctx) frame))[0m
+  [0m  [0m  [33m                                      ^--- Unmatched delimiter )[0m
+  [36m85[0m  [36m[0m
+  [36m86[0m  [36m(defn draw-painter [segment-list ctx ][0m
+  [36m87[0m  [36m  (run![0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.778 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.886 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:84  column:11  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/setTransform[0m
+
+  [36m80[0m  [36m;; DRAWING FUNCTIONS[0m
+  [36m81[0m  [36m[0m
+  [36m82[0m  [36m(defn transform-painter [frame ctx][0m
+  [36m83[0m  [36m  ;; (do (println (interpose "," frame))[0m
+  [33m84[0m  [1m  (apply ,setTransform ctx frame))[0m
+  [0m  [0m  [33m          ^--- Use of undeclared Var Lazy-Henderson.core/setTransform[0m
+  [36m85[0m  [36m[0m
+  [36m86[0m  [36m(defn draw-painter [segment-list ctx ][0m
+  [36m87[0m  [36m  (run![0m
+  [36m88[0m  [36m   (fn [segment][0m
+  [36m89[0m  [36m     (.lineTo[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.719 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.813 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.667 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.79 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.676 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.744 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.777 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.739 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.766 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.934 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:106  column:22  ----[0m
+
+  [1mWrong number of args (1) passed to Lazy-Henderson.core/make-vect[0m
+
+  [36m102[0m  [36m  @image[0m
+  [36m103[0m  [36m  (swap! image update :frame conj[0m
+  [36m104[0m  [36m         (make-frame (make-vect 0 0)[0m
+  [36m105[0m  [36m                     (make-vect 0 0)[0m
+  [33m106[0m  [1m                     (make-vect 0 )))[0m
+  [0m   [0m  [33m                     ^--- Wrong number of args (1) passed to Lazy-Henderson.core/make-vect[0m
+  [36m107[0m  [36m  image)[0m
+  [36m108[0m  [36m[0m
+  [36m109[0m  [36m(defn draw [image][0m
+  [36m110[0m  [36m  (let [ctx ( @image :ctx)[0m
+  [36m111[0m  [36m        segment-list (@image :segment-list)][0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.84 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.657 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.645 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.77 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.644 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.775 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.748 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.782 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.803 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.656 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.85 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.734 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.773 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.767 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.762 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.733 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.762 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.841 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.668 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.741 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.773 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.674 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.755 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.761 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.79 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.747 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.657 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.666 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.803 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.748 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 1.253 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.814 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.851 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.763 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:178  column:7  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/image[0m
+
+  [36m174[0m  [36m)[0m
+  [36m175[0m  [36m                       )))[0m
+  [36m176[0m  [36m  (#(mapv rotate90-frame %&)[0m
+  [36m177[0m  [36m   (peek[0m
+  [33m178[0m  [1m    (@image :frame)))[0m
+  [0m   [0m  [33m      ^--- Use of undeclared Var Lazy-Henderson.core/image[0m
+  [36m179[0m  [36m  image)[0m
+  [36m180[0m  [36m[0m
+  [36m181[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;[0m
+  [36m182[0m  [36m[0m
+  [36m183[0m  [36m;; COMBINING PROCEDURES[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:179  column:3  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/image[0m
+
+  [36m175[0m  [36m                       )))[0m
+  [36m176[0m  [36m  (#(mapv rotate90-frame %&)[0m
+  [36m177[0m  [36m   (peek[0m
+  [36m178[0m  [36m    (@image :frame)))[0m
+  [33m179[0m  [1m  image)[0m
+  [0m   [0m  [33m  ^--- Use of undeclared Var Lazy-Henderson.core/image[0m
+  [36m180[0m  [36m[0m
+  [36m181[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;[0m
+  [36m182[0m  [36m[0m
+  [36m183[0m  [36m;; COMBINING PROCEDURES[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.487 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:179  column:9  ----[0m
+
+  [1mUnmatched delimiter )[0m
+
+  [36m177[0m  [36m   (peek[0m
+  [36m178[0m  [36m    (@image :frame)))[0m
+  [33m179[0m  [1m  image)[0m
+  [0m   [0m  [33m        ^--- Unmatched delimiter )[0m
+  [36m180[0m  [36m[0m
+  [36m181[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:178  column:7  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/image[0m
+
+  [36m174[0m  [36m)[0m
+  [36m175[0m  [36m                       )))[0m
+  [36m176[0m  [36m  (#(mapv rotate90-frame %&)[0m
+  [36m177[0m  [36m   (peek[0m
+  [33m178[0m  [1m    (@image :frame)))[0m
+  [0m   [0m  [33m      ^--- Use of undeclared Var Lazy-Henderson.core/image[0m
+  [36m179[0m  [36m  image)[0m
+  [36m180[0m  [36m[0m
+  [36m181[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;[0m
+  [36m182[0m  [36m[0m
+  [36m183[0m  [36m;; COMBINING PROCEDURES[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/Lazy_Henderson/core.cljs   line:179  column:3  ----[0m
+
+  [1mUse of undeclared Var Lazy-Henderson.core/image[0m
+
+  [36m175[0m  [36m                       )))[0m
+  [36m176[0m  [36m  (#(mapv rotate90-frame %&)[0m
+  [36m177[0m  [36m   (peek[0m
+  [36m178[0m  [36m    (@image :frame)))[0m
+  [33m179[0m  [1m  image)[0m
+  [0m   [0m  [33m  ^--- Use of undeclared Var Lazy-Henderson.core/image[0m
+  [36m180[0m  [36m[0m
+  [36m181[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;[0m
+  [36m182[0m  [36m[0m
+  [36m183[0m  [36m;; COMBINING PROCEDURES[0m
+
+[36m----  Compiler Warning : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[31mFailed to compile "resources/public/js/compiled/Lazy_Henderson.js" in 0.552 seconds.[0m
+[36m----  Could not Read  src/Lazy_Henderson/core.cljs   line:179  column:9  ----[0m
+
+  [1mUnmatched delimiter )[0m
+
+  [36m177[0m  [36m   (peek[0m
+  [36m178[0m  [36m    (@image :frame)))[0m
+  [33m179[0m  [1m  image)[0m
+  [0m   [0m  [33m        ^--- Unmatched delimiter )[0m
+  [36m180[0m  [36m[0m
+  [36m181[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;[0m
+
+[36m----  Reader Error : Please see src/Lazy_Henderson/core.cljs  ----[0m
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.696 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.876 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.702 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.764 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.774 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.714 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.692 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.707 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.651 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.835 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.772 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.819 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.774 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.795 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.856 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.749 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.826 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.746 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.809 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.83 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.704 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.787 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.786 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.66 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
