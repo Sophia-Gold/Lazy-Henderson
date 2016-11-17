@@ -5,7 +5,7 @@ The basic version uses the stick figure of "George," the eponymous low-level pro
 
 ![George](https://github.com/Sophia-Gold/Lazy-Henderson.cljs/blob/master/george.jpg)
 
-George on a recursive mindtrip from having to actually implement all of Abelson & Sussman's code on a hardware level:
+George on a recursive mindtrip from having to actually implement Abelson & Sussman's code on a hardware level:
 
 ![Recursive George](https://github.com/Sophia-Gold/Lazy-Henderson.cljs/blob/master/square-limit.jpg)
 
