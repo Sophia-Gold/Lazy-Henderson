@@ -270,7 +270,7 @@
 
 ;; TESTS
 
-;; (draw (painter george))
+(draw (painter george))
 ;; (draw (flip-vert (painter george)))
 ;; (draw (flip-horiz (painter george)))
 ;; (draw (rotate90 (painter george)))
@@ -283,4 +283,4 @@
 ;; (draw (up-split #(painter george) 5))
 ;; (draw (corner-split #(painter george) 5))
 
-(draw (square-limit #(painter george) 5))
+;; (draw (square-limit #(painter george) 5))

@@ -56519,3 +56519,17 @@ notifying browser that file changed:  out/Lazy_Henderson/core.js
 [32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.66 seconds.[0m
 notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
 notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.838 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.916 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
+[0mCompiling "resources/public/js/compiled/Lazy_Henderson.js" from ["src"]...[0m
+[32mSuccessfully compiled "resources/public/js/compiled/Lazy_Henderson.js" in 0.68 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/Lazy_Henderson/core.js
