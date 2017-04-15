@@ -1,6 +1,6 @@
 (ns Lazy-Henderson.core)
 
-(enable-console-print!)
+;; (enable-console-print!)
 
 ;; FRAME CONSTRUCTORS AND SELECTORS
 
@@ -47,33 +47,31 @@
 
 ;; DATASTORE
 
-(def george (atom {:ctx (.getContext
-                         (.getElementById js/document "canvas") "2d"),
-                   :segment-list
-                   (list
-                    (make-segment (make-vect .25 0) (make-vect .35 .5))
-                    (make-segment (make-vect .35 .5) (make-vect .3 .6))
-                    (make-segment (make-vect .3 .6) (make-vect .15 .4))
-                    (make-segment (make-vect .15 .4) (make-vect 0 .65))
-                    (make-segment (make-vect 0 .65) (make-vect 0 .85))
-                    (make-segment (make-vect 0 .85) (make-vect .15 .6))
-                    (make-segment (make-vect .15 .6) (make-vect .3 .65))
-                    (make-segment (make-vect .3 .65) (make-vect .4 .65))
-                    (make-segment (make-vect .4 .65) (make-vect .35 .85))
-                    (make-segment (make-vect .35 .85) (make-vect .4 1))
-                    (make-segment (make-vect .4 1) (make-vect .6 1))
-                    (make-segment (make-vect .6 1) (make-vect .65 .85))
-                    (make-segment (make-vect .65 .85) (make-vect .6 .65))
-                    (make-segment (make-vect .6 .65) (make-vect .75 .65))
-                    (make-segment (make-vect .75 .65) (make-vect 1 .35))
-                    (make-segment (make-vect 1 .35) (make-vect 1 .15))
-                    (make-segment (make-vect 1 .15) (make-vect .6 .45))
-                    (make-segment (make-vect .6 .45) (make-vect .75 0))
-                    (make-segment (make-vect .75 0) (make-vect .6 0))
-                    (make-segment (make-vect .6 0) (make-vect .5 .3))
-                    (make-segment (make-vect .5 .3) (make-vect .4 0))
-                    (make-segment (make-vect .4 0) (make-vect .25 0))),
-                   :frame []}))
+(def store (atom {:ctx (.getContext
+                        (.getElementById js/document "canvas") "2d"),
+                  :segment-list (list
+                                 (make-segment (make-vect .25 0) (make-vect .35 .5))
+                                 (make-segment (make-vect .35 .5) (make-vect .3 .6))
+                                 (make-segment (make-vect .3 .6) (make-vect .15 .4))
+                                 (make-segment (make-vect .15 .4) (make-vect 0 .65))
+                                 (make-segment (make-vect 0 .65) (make-vect 0 .85))
+                                 (make-segment (make-vect 0 .85) (make-vect .15 .6))
+                                 (make-segment (make-vect .15 .6) (make-vect .3 .65))
+                                 (make-segment (make-vect .3 .65) (make-vect .4 .65))
+                                 (make-segment (make-vect .4 .65) (make-vect .35 .85))
+                                 (make-segment (make-vect .35 .85) (make-vect .4 1))
+                                 (make-segment (make-vect .4 1) (make-vect .6 1))
+                                 (make-segment (make-vect .6 1) (make-vect .65 .85))
+                                 (make-segment (make-vect .65 .85) (make-vect .6 .65))
+                                 (make-segment (make-vect .6 .65) (make-vect .75 .65))
+                                 (make-segment (make-vect .75 .65) (make-vect 1 .35))
+                                 (make-segment (make-vect 1 .35) (make-vect 1 .15))
+                                 (make-segment (make-vect 1 .15) (make-vect .6 .45))
+                                 (make-segment (make-vect .6 .45) (make-vect .75 0))
+                                 (make-segment (make-vect .75 0) (make-vect .6 0))
+                                 (make-segment (make-vect .6 0) (make-vect .5 .3))
+                                 (make-segment (make-vect .5 .3) (make-vect .4 0))
+                                 (make-segment (make-vect .4 0) (make-vect .25 0)))}))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -98,189 +96,201 @@
   (.stroke ctx))
 
 (defn painter [image]
-  @image
-  (swap! image update :frame conj
+  (swap! store assoc (keyword image)
          (make-frame (make-vect 400 0)
                      (make-vect 0 -400)
                      (make-vect 0 400)))
   image)
 
 (defn draw [image]
-  (let [ctx ( @image :ctx)
-        segment-list (@image :segment-list)]
-    (defn p [frame]
-      (transform-painter frame ctx)
-      (draw-painter segment-list ctx)
-      (swap! image update :frame pop))
-    (mapcat p
-      (@image :frame))))
+  (let [ctx (@store :ctx)
+        segment-list (@store :segment-list)
+        frame (@store (keyword image))]
+    (transform-painter frame ctx)
+    (draw-painter segment-list ctx)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;TRANSFORMATIONS
 
 (defn flip-vert [image]
-  (defn flip-vert-frame [old-frame]
-    @image
-    (swap! image update :frame pop)
-    (swap! image update :frame conj
-           (make-frame (edge1-frame old-frame)
-                       (make-vect
-                        (xcor-vect (edge2-frame old-frame))
-                        (- (ycor-vect (edge2-frame old-frame))))
-                       (make-vect 
-                        (xcor-vect (origin-frame old-frame))
-                        (+ (ycor-vect (origin-frame old-frame))
-                           (ycor-vect (edge2-frame old-frame)))))))
-  (#(mapv flip-vert-frame %&)
-   (peek
-    (@image :frame)))
-  image)
+  (let [old-image (keyword image)
+        new-image (keyword (gensym (str image)))
+        old-frame (@store old-image)
+        new-frame (make-frame
+                   (edge1-frame old-frame)
+                   (make-vect
+                    (xcor-vect (edge2-frame old-frame))
+                    (- (ycor-vect (edge2-frame old-frame))))
+                   (make-vect 
+                    (xcor-vect (origin-frame old-frame))
+                    (+ (ycor-vect (origin-frame old-frame))
+                       (ycor-vect (edge2-frame old-frame)))))]
+    (swap! store assoc new-image new-frame)
+    new-image))
 
 (defn flip-horiz [image]
-  (defn flip-horiz-frame [old-frame]
-    @image
-    (swap! image update :frame pop)
-    (swap! image update :frame conj
-           (make-frame (make-vect
-                        (- (xcor-vect (edge1-frame old-frame)))
-                        (ycor-vect (edge1-frame old-frame)))
-                       (edge2-frame old-frame)
-                       (make-vect 
-                        (+ (xcor-vect (origin-frame old-frame))
-                           (xcor-vect (edge1-frame old-frame)))
-                        (ycor-vect (origin-frame old-frame))))))
-  (#(mapv flip-horiz-frame %&)
-   (peek
-    (@image :frame)))
-  image)
+  (let [old-image (keyword image)
+        new-image (keyword (gensym (str image)))
+        old-frame (@store old-image)
+        new-frame (make-frame
+                   (make-vect
+                    (- (xcor-vect (edge1-frame old-frame)))
+                    (ycor-vect (edge1-frame old-frame)))
+                   (edge2-frame old-frame)
+                   (make-vect 
+                    (+ (xcor-vect (origin-frame old-frame))
+                       (xcor-vect (edge1-frame old-frame)))
+                    (ycor-vect (origin-frame old-frame))))]
+    (swap! store assoc new-image new-frame)
+    new-image))
 
 (defn rotate90 [image]
-  (defn rotate90-frame [old-frame]
-    @image
-    (swap! image update :frame pop)
-    (swap! image update :frame conj
-           (make-frame (make-vect
-                        (ycor-vect (edge1-frame old-frame))
-                        (xcor-vect (edge1-frame old-frame)))
-                       (make-vect
-                        (- (ycor-vect (edge2-frame old-frame)))
-                        (xcor-vect (edge2-frame old-frame)))
-                       (make-vect 
-                        (xcor-vect (origin-frame old-frame))
-                        (+ (ycor-vect (origin-frame old-frame))
-                           (ycor-vect (edge2-frame old-frame)))))))
-  (#(mapv rotate90-frame %&)
-   (peek
-    (@image :frame)))
-  image)
+  (let [old-image (keyword image)
+        new-image (keyword (gensym (str image)))
+        old-frame (@store old-image)
+        new-frame (make-frame
+                   (make-vect
+                    (ycor-vect (edge1-frame old-frame))
+                    (xcor-vect (edge1-frame old-frame)))
+                   (make-vect
+                    (- (ycor-vect (edge2-frame old-frame)))
+                    (xcor-vect (edge2-frame old-frame)))
+                   (make-vect 
+                    (xcor-vect (origin-frame old-frame))
+                    (+ (ycor-vect (origin-frame old-frame))
+                       (ycor-vect (edge2-frame old-frame)))))]
+    (swap! store assoc new-image new-frame)
+    new-image))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; COMBINING PROCEDURES
 
-(defn beside [image & painters]
-  (let [frames (vector (peek (pop (@image :frame))) (peek (@image :frame)))]
-    (defn beside-frame [frames]
-      (let [old-frame1 (first frames)
-            old-frame2 (fnext frames)]
-    (let [new-frame1 (make-frame 
-                      (scale-vect 0.5 (edge1-frame old-frame1))
-                      (edge2-frame old-frame1)
-                      (origin-frame old-frame1))
-          new-frame2 (make-frame
-                      (scale-vect 0.5 (edge1-frame old-frame2))
-                      (edge2-frame old-frame2)
-                      (add-vect
-                       (origin-frame old-frame2)
-                       (scale-vect 0.5 (edge1-frame old-frame2))))]
-          @image
-          (swap! image update :frame pop)
-          (swap! image update :frame pop)
-          (swap! image update :frame conj new-frame1)
-          (swap! image update :frame conj new-frame2))))
-    (#(mapv beside-frame %&)
-     frames))
-  image)
+(defn beside-left [image]
+  (let [old-image (keyword image)
+        new-image (keyword (gensym (str image)))
+        old-frame (@store old-image)
+        new-frame (make-frame 
+                   (scale-vect 0.5 (edge1-frame old-frame))
+                   (edge2-frame old-frame)
+                   (origin-frame old-frame))]
+    (swap! store assoc new-image new-frame)
+    new-image))
 
-(defn below [image & painters]
-  (let [frames (vector (peek (pop (@image :frame))) (peek (@image :frame)))]
-    (defn below-frame [frames]  
-      (let [old-frame1 (first frames)
-            old-frame2 (fnext frames)]
-      (let [new-frame1 (make-frame 
-                        (edge1-frame old-frame1)
-                        (scale-vect 0.5 (edge2-frame old-frame1))
-                        (origin-frame old-frame1))
-                        ;; (add-vect 
-                        ;;  (origin-frame old-frame1) 
-                        ;;  (scale-vect 0.5 (edge2-frame old-frame1))))
-            new-frame2 (make-frame 
-                        (edge1-frame old-frame2)
-                        (scale-vect 0.5 (edge2-frame old-frame2))
-                        (add-vect 
-                         (origin-frame old-frame2) 
-                         (scale-vect 0.5 (edge2-frame old-frame2))))]
-          @image
-          (swap! image update :frame pop)
-          (swap! image update :frame pop)
-          (swap! image update :frame conj new-frame1)
-          (swap! image update :frame conj new-frame2))))
-    (#(mapv below-frame %&)
-     frames))
-  image)
+(defn beside-right [image]
+  (let [old-image (keyword image)
+        new-image (keyword (gensym (str image)))
+        old-frame (@store old-image)
+        new-frame (make-frame 
+                   (scale-vect 0.5 (edge1-frame old-frame))
+                   (edge2-frame old-frame)
+                   (add-vect
+                    (origin-frame old-frame)
+                    (scale-vect 0.5 (edge1-frame old-frame))))]
+    (swap! store assoc new-image new-frame)
+    new-image))
 
-(defn flipped-pairs [painter]
-  (let [painter2 #(beside (painter) (flip-vert (painter)))]
-    (below (painter2) (painter2))))
+(defn beside [left-image right-image]
+  (do
+    (draw (beside-left left-image))
+    (draw (beside-right right-image))))
+
+(defn below-top [image]
+  (let [old-image (keyword image)
+        new-image (keyword (gensym (str image)))
+        old-frame (@store old-image)
+        new-frame (make-frame 
+                   (edge1-frame old-frame)
+                   (scale-vect 0.5 (edge2-frame old-frame))
+                   (add-vect
+                    (origin-frame old-frame)
+                    (scale-vect 0.5 (edge2-frame old-frame))))]
+    (swap! store assoc new-image new-frame)
+    new-image))
+
+(defn below-bottom [image]
+  (let [old-image (keyword image)
+        new-image (keyword (gensym (str image)))
+        old-frame (@store old-image)
+        new-frame (make-frame 
+                   (edge1-frame old-frame)
+                   (scale-vect 0.5 (edge2-frame old-frame))
+                   (origin-frame old-frame))]
+    (swap! store assoc new-image new-frame)
+    new-image))
+
+(defn below [top-image bottom-image]
+  (do
+    (draw (below-top top-image))
+    (draw (below-bottom bottom-image))))
+
+(defn flipped-pairs [image]
+  (do
+    (draw (below-top (beside-left image)))
+    (draw (below-top (beside-right (flip-vert image))))
+    (draw (below-bottom (beside-left image)))
+    (draw (below-bottom (beside-right (flip-vert image))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; COMPLEX COMBINING PROCEDURES
 
-(defn split [painter n f g]
+(defn right-split [image n]
   (if (= n 0)
-    (painter)
-    (f (painter) (g (split painter (- n 1) f g)
-                    (split painter (- n 1) f g)))))
+      image
+      (let [smaller (right-split (beside-right image) (- n 1))]
+        (do
+          (draw (beside-left image))
+          (draw (beside-right (below-top image)))
+          (draw (beside-right (below-bottom image)))))))
 
-(defn right-split [painter n]
-  (split painter n beside below))
-
-(defn up-split [painter n] 
-  (split painter n below beside))
-
-(defn corner-split [painter n]
+(defn up-split [image n]
   (if (= n 0)
-      (painter)
-      (let [up (up-split painter (- n 1))
-            right (right-split painter (- n 1))]
-        (let [top-left (beside up up)
-              bottom-right (below right right)
-              corner (corner-split painter (- n 1))]
-          (beside (below (painter) top-left)
-                  (below bottom-right corner))))))
+    image
+    (let [smaller (up-split (below-top image) (- n 1))]
+      (do
+        (draw (below-bottom image))
+        (draw (below-top (beside-left image)))
+        (draw (below-top (beside-right image)))))))
 
-(defn square-limit [painter n]
-  (let [quarter (corner-split painter n)]
-    (let [half (beside (flip-horiz quarter) quarter)]
-      (below (flip-vert half) half))))
+(defn corner-split [image n]
+  (do
+    (draw (beside-left (below-bottom image)))
+    (right-split (beside-right (below-bottom image)) n)
+    (up-split (beside-left (below-top image)) n)
+    (corner-split (beside-right (below-top image)) (- n 1))))
 
+(defn square-limit [image n]
+  (do
+    (corner-split (flip-horiz (below-top (beside-left image))) n)
+    (corner-split (below-top (beside-right image)) n)
+    (corner-split (flip-vert (flip-horiz (below-bottom (beside-left image)))) n)
+    (corner-split (flip-vert (below-bottom (beside-right image))) n)))
+    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; TESTS
 
-(draw (painter george))
-;; (draw (flip-vert (painter george)))
-;; (draw (flip-horiz (painter george)))
-;; (draw (rotate90 (painter george)))
+;; (draw (painter "george"))
 
-;; (draw (beside (painter george) (flip-vert (painter george))))
-;; (draw (below (painter george) (flip-vert (painter george))))
-;; (draw (flipped-pairs #(painter george)))
+;; (draw (flip-vert (painter "george")))
+;; (draw (flip-horiz (painter "george")))
+;; (draw (rotate90 (painter "george")))
 
-;; (draw (right-split #(painter george) 5))
-;; (draw (up-split #(painter george) 5))
-;; (draw (corner-split #(painter george) 5))
+;; (draw (beside-left (painter "george")))
+;; (draw (beside-right (painter "george")))
+;; (beside (painter "george") (painter "george"))
 
-;; (draw (square-limit #(painter george) 5))
+;; (draw (below-top (painter "george")))
+;; (draw (below-bottom (painter "george")))
+;; (below (painter "george") (painter "george"))
+
+;; (flipped-pairs (painter "george"))
+
+;; (draw (right-split (painter "george") 5))
+;; (draw (up-split (painter "george") 5))
+
+;; (draw (corner-split (painter "george") 5))
+
+(square-limit (painter "george") 5)
