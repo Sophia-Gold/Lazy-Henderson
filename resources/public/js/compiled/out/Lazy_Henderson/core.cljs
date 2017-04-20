@@ -103,9 +103,9 @@
   image)
 
 (defn draw [image]
-  (let [ctx (@store :ctx)
-        segment-list (@store :segment-list)
-        frame (@store (keyword image))]
+  (let [ctx (get @store :ctx)
+        segment-list (get @store :segment-list)
+        frame (get @store (keyword image))]
     (transform-painter frame ctx)
     (draw-painter segment-list ctx)))
 
@@ -116,7 +116,7 @@
 (defn flip-vert [image]
   (let [old-image (keyword image)
         new-image (keyword (gensym (str image)))
-        old-frame (@store old-image)
+        old-frame (get @store old-image)
         new-frame (make-frame
                    (edge1-frame old-frame)
                    (make-vect
@@ -132,7 +132,7 @@
 (defn flip-horiz [image]
   (let [old-image (keyword image)
         new-image (keyword (gensym (str image)))
-        old-frame (@store old-image)
+        old-frame (get @store old-image)
         new-frame (make-frame
                    (make-vect
                     (- (xcor-vect (edge1-frame old-frame)))
@@ -148,14 +148,14 @@
 (defn rotate90 [image]
   (let [old-image (keyword image)
         new-image (keyword (gensym (str image)))
-        old-frame (@store old-image)
+        old-frame (get @store old-image)
         new-frame (make-frame
                    (make-vect
                     (ycor-vect (edge1-frame old-frame))
                     (xcor-vect (edge1-frame old-frame)))
                    (make-vect
-                    (- (ycor-vect (edge2-frame old-frame)))
-                    (xcor-vect (edge2-frame old-frame)))
+                    (xcor-vect (edge2-frame old-frame))
+                    (- (ycor-vect (edge2-frame old-frame))))
                    (make-vect 
                     (xcor-vect (origin-frame old-frame))
                     (+ (ycor-vect (origin-frame old-frame))
@@ -170,7 +170,7 @@
 (defn beside-left [image]
   (let [old-image (keyword image)
         new-image (keyword (gensym (str image)))
-        old-frame (@store old-image)
+        old-frame (get @store old-image)
         new-frame (make-frame 
                    (scale-vect 0.5 (edge1-frame old-frame))
                    (edge2-frame old-frame)
@@ -181,7 +181,7 @@
 (defn beside-right [image]
   (let [old-image (keyword image)
         new-image (keyword (gensym (str image)))
-        old-frame (@store old-image)
+        old-frame (get @store old-image)
         new-frame (make-frame 
                    (scale-vect 0.5 (edge1-frame old-frame))
                    (edge2-frame old-frame)
@@ -199,7 +199,7 @@
 (defn below-top [image]
   (let [old-image (keyword image)
         new-image (keyword (gensym (str image)))
-        old-frame (@store old-image)
+        old-frame (get @store old-image)
         new-frame (make-frame 
                    (edge1-frame old-frame)
                    (scale-vect 0.5 (edge2-frame old-frame))
@@ -212,7 +212,7 @@
 (defn below-bottom [image]
   (let [old-image (keyword image)
         new-image (keyword (gensym (str image)))
-        old-frame (@store old-image)
+        old-frame (get @store old-image)
         new-frame (make-frame 
                    (edge1-frame old-frame)
                    (scale-vect 0.5 (edge2-frame old-frame))
@@ -221,16 +221,14 @@
     new-image))
 
 (defn below [top-image bottom-image]
-  (do
-    (draw (below-top top-image))
-    (draw (below-bottom bottom-image))))
+  (draw (below-top top-image))
+  (draw (below-bottom bottom-image)))
 
 (defn flipped-pairs [image]
-  (do
-    (draw (below-top (beside-left image)))
-    (draw (below-top (beside-right (flip-vert image))))
-    (draw (below-bottom (beside-left image)))
-    (draw (below-bottom (beside-right (flip-vert image))))))
+  (draw (below-top (beside-left image)))
+  (draw (below-top (beside-right (flip-vert image))))
+  (draw (below-bottom (beside-left image)))
+  (draw (below-bottom (beside-right (flip-vert image)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -255,18 +253,16 @@
         (draw (below-top (beside-right image)))))))
 
 (defn corner-split [image n]
-  (do
-    (draw (beside-left (below-bottom image)))
-    (right-split (beside-right (below-bottom image)) n)
-    (up-split (beside-left (below-top image)) n)
-    (corner-split (beside-right (below-top image)) (- n 1))))
+  (draw (beside-left (below-bottom image)))
+  (right-split (beside-right (below-bottom image)) n)
+  (up-split (beside-left (below-top image)) n)
+  (corner-split (beside-right (below-top image)) (- n 1)))
 
 (defn square-limit [image n]
-  (do
-    (corner-split (flip-horiz (below-top (beside-left image))) n)
-    (corner-split (below-top (beside-right image)) n)
-    (corner-split (flip-vert (flip-horiz (below-bottom (beside-left image)))) n)
-    (corner-split (flip-vert (below-bottom (beside-right image))) n)))
+  (corner-split (flip-horiz (below-top (beside-left image))) n)
+  (corner-split (below-top (beside-right image)) n)
+  (corner-split (flip-vert (flip-horiz (below-bottom (beside-left image)))) n)
+  (corner-split (flip-vert (below-bottom (beside-right image))) n))
     
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -288,9 +284,9 @@
 
 ;; (flipped-pairs (painter "george"))
 
-;; (draw (right-split (painter "george") 5))
-;; (draw (up-split (painter "george") 5))
+;; (right-split (painter "george") 5)
+;; (up-split (painter "george") 5)
 
-;; (draw (corner-split (painter "george") 5))
+;; (corner-split (painter "george") 5)
 
 (square-limit (painter "george") 5)
