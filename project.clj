@@ -5,7 +5,8 @@
   :min-lein-version "2.7.1"
 
   :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
-                 [org.clojure/clojurescript "1.9.198"]]
+                 [org.clojure/clojurescript "1.9.198"]
+                 [org.omcljs/om "1.0.0-alpha46"]]
 
   :plugins [[lein-figwheel "0.5.8"]
             [lein-cljsbuild "1.1.4" :exclusions [[org.clojure/clojure]]]]

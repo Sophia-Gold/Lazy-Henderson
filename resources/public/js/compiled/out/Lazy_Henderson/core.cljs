@@ -1,4 +1,7 @@
-(ns Lazy-Henderson.core)
+(ns Lazy-Henderson.core
+  (:require [goog.dom :as gdom]
+            [om.next :as om :refer [defui ui]]
+            [om.dom :as dom]))
 
 ;; (enable-console-print!)
 
@@ -47,8 +50,8 @@
 
 ;; DATASTORE
 
-(def store (atom {:ctx (.getContext
-                        (.getElementById js/document "canvas") "2d"),
+(def store (atom {;; :ctx (.getContext
+                  ;; (.getElementById js/document "canvas") "2d"),
                   :segment-list (list
                                  (make-segment (make-vect .25 0) (make-vect .35 .5))
                                  (make-segment (make-vect .35 .5) (make-vect .3 .6))
@@ -72,6 +75,49 @@
                                  (make-segment (make-vect .6 0) (make-vect .5 .3))
                                  (make-segment (make-vect .5 .3) (make-vect .4 0))
                                  (make-segment (make-vect .4 0) (make-vect .25 0)))}))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; RENDERING FUNCTIONS
+
+(def reconciler
+  (om/reconciler {:state store}))
+
+(defui canvas
+  Object
+  (render [this]
+          (let [{:keys [id width height]} (om/props this)]
+            (dom/input #js
+                       {:id id
+                        :width width
+                        :height height
+                        }))))
+  
+(def canvas-factory (om/factory canvas))
+
+(defui canvas-generator
+  Object
+  (render [this]
+          (apply dom/div nil
+                 (map #(canvas-factory
+                        {:react-key %
+                         :id %
+                         :width %
+                         :height %})
+                      (next (keys (om/props this)))))))
+
+(om/add-root! reconciler
+              canvas-generator (gdom/getElement "app"))
+
+(defn new-canvas [id width height]
+  (let [str-id (str id)
+        key-id (keyword id)]
+    (swap! store assoc key-id
+           {:id str-id, :width width, :height height})
+    (swap! store assoc-in [key-id :ctx]
+           (.getContext
+            (.getElementById js/document (str id)) "2d"))
+    id))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -102,12 +148,18 @@
                      (make-vect 0 400)))
   image)
 
-(defn draw [image]
-  (let [ctx (get @store :ctx)
+(defn draw [image canvas]
+  (let [ctx (get-in @store [(keyword canvas) :ctx])
         segment-list (get @store :segment-list)
         frame (get @store (keyword image))]
     (transform-painter frame ctx)
     (draw-painter segment-list ctx)))
+
+(defn draw-new [image]
+  (let [id (gensym)]
+    (do
+      (new-canvas id "400px" "400px")
+      (draw image id))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -192,9 +244,11 @@
     new-image))
 
 (defn beside [left-image right-image]
-  (do
-    (draw (beside-left left-image))
-    (draw (beside-right right-image))))
+  (let [id (gensym)]
+    (do
+      (new-canvas id "400px" "400px")
+      (draw (beside-left left-image) id)
+      (draw (beside-right right-image) id))))
 
 (defn below-top [image]
   (let [old-image (keyword image)
@@ -221,65 +275,78 @@
     new-image))
 
 (defn below [top-image bottom-image]
-  (draw (below-top top-image))
-  (draw (below-bottom bottom-image)))
+  (let [id (gensym)]
+    (do
+      (new-canvas id "400px" "400px")
+      (draw (below-top top-image) id)
+      (draw (below-bottom bottom-image) id))))
 
 (defn flipped-pairs [image]
-  (draw (below-top (beside-left image)))
-  (draw (below-top (beside-right (flip-vert image))))
-  (draw (below-bottom (beside-left image)))
-  (draw (below-bottom (beside-right (flip-vert image)))))
+  (let [id (gensym)]
+    (do
+      (new-canvas id "400px" "400px")
+      (draw (below-top (beside-left image)) id)
+      (draw (below-top (beside-right (flip-vert image))) id)
+      (draw (below-bottom (beside-left image)) id)
+      (draw (below-bottom (beside-right (flip-vert image))) id))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; COMPLEX COMBINING PROCEDURES
 
-(defn right-split [image n]
-  (if (= n 0)
-      image
-      (let [smaller (right-split (beside-right image) (- n 1))]
-        (do
-          (draw (beside-left image))
-          (draw (beside-right (below-top image)))
-          (draw (beside-right (below-bottom image)))))))
+;; (defn right-split [image n]
+;;   (let [id (gensym)]
+;;     (new-canvas id "400px" "400px")
+;;     (if (= n 0)
+;;       image
+;;       (let [smaller (right-split (beside-right image) (- n 1))]
+;;         (do
+;;           (draw (beside-left image) id)
+;;           (draw (beside-right (below-top image)) id)
+;;           (draw (beside-right (below-bottom image)) id))))))
 
-(defn up-split [image n]
-  (if (= n 0)
-    image
-    (let [smaller (up-split (below-top image) (- n 1))]
-      (do
-        (draw (below-bottom image))
-        (draw (below-top (beside-left image)))
-        (draw (below-top (beside-right image)))))))
+;; (defn up-split [image n]
+;;   (let [id (gensym)]
+;;     (new-canvas id "400px" "400px")
+;;     (if (= n 0)
+;;       image
+;;       (let [smaller (up-split (below-top image) (- n 1))]
+;;         (do
+;;           (draw (below-bottom image) id)
+;;           (draw (below-top (beside-left image)) id)
+;;           (draw (below-top (beside-right image)) id))))))
 
-(defn corner-split [image n]
-  (draw (beside-left (below-bottom image)))
-  (right-split (beside-right (below-bottom image)) n)
-  (up-split (beside-left (below-top image)) n)
-  (corner-split (beside-right (below-top image)) (- n 1)))
-
-(defn square-limit [image n]
-  (corner-split (flip-horiz (below-top (beside-left image))) n)
-  (corner-split (below-top (beside-right image)) n)
-  (corner-split (flip-vert (flip-horiz (below-bottom (beside-left image)))) n)
-  (corner-split (flip-vert (below-bottom (beside-right image))) n))
+;; (defn corner-split [image n]
+;;   (let [id (gensym)]
+;;     (do
+;;       (new-canvas id "400px" "400px")
+;;       (draw (beside-left (below-bottom image)) id)
+;;       (right-split (beside-right (below-bottom image)) n)
+;;       (up-split (beside-left (below-top image)) n)
+;;       (corner-split (beside-right (below-top image)) (- n 1)))))
+    
+;; (defn square-limit [image n]
+;;   (corner-split (flip-horiz (below-top (beside-left image))) n)
+;;   (corner-split (below-top (beside-right image)) n)
+;;   (corner-split (flip-vert (flip-horiz (below-bottom (beside-left image)))) n)
+;;   (corner-split (flip-vert (below-bottom (beside-right image))) n))
     
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; TESTS
 
-;; (draw (painter "george"))
+;; (draw-new (painter "george"))
 
-;; (draw (flip-vert (painter "george")))
-;; (draw (flip-horiz (painter "george")))
-;; (draw (rotate90 (painter "george")))
+;; (draw-new (flip-vert (painter "george")))
+;; (draw-new (flip-horiz (painter "george")))
+;; (draw-new (rotate90 (painter "george")))
 
-;; (draw (beside-left (painter "george")))
-;; (draw (beside-right (painter "george")))
+;; (draw-new (beside-left (painter "george")))
+;; (draw-new (beside-right (painter "george")))
 ;; (beside (painter "george") (painter "george"))
 
-;; (draw (below-top (painter "george")))
-;; (draw (below-bottom (painter "george")))
+;; (draw-new (below-top (painter "george")))
+;; (draw-new (below-bottom (painter "george")))
 ;; (below (painter "george") (painter "george"))
 
 ;; (flipped-pairs (painter "george"))
@@ -289,4 +356,4 @@
 
 ;; (corner-split (painter "george") 5)
 
-(square-limit (painter "george") 5)
+;; (square-limit (painter "george") 5)
