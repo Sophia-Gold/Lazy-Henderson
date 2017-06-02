@@ -133,7 +133,9 @@
 (defn transform-painter [frame ctx]
   (apply #(.setTransform ctx %1 %2 %3 %4 %5 %6) frame))
 
-(defn draw-painter [segment-list ctx ]
+(defn draw-painter [segment-list ctx]
+  (.beginPath ctx)
+  (.moveTo ctx (first segment-list) (fnext segment-list))
   (run!
    (fn [segment]
      (.lineTo
@@ -145,7 +147,8 @@
       (xcor-vect (end-segment segment))
       (ycor-vect (end-segment segment))))
    segment-list)
-  (set! (.-lineWidth ctx) .01)
+  (.closePath ctx)
+  (set! (.-lineWidth ctx) .05)
   (.stroke ctx))
 
 (defn painter [image]
@@ -301,36 +304,32 @@
 ;; COMPLEX COMBINING PROCEDURES
 
 ;; (defn right-split [image n]
-;;   (let [id (gensym)]
-;;     (new-canvas id "400px" "400px")
-;;     (if (= n 0)
+;;   (if (zero? n)
 ;;       image
-;;       (let [smaller (right-split (beside-right image) (- n 1))]
-;;         (do
-;;           (draw (beside-left image) id)
-;;           (draw (beside-right (below-top image)) id)
-;;           (draw (beside-right (below-bottom image)) id))))))
+;;       (do
+;;         (draw (beside-left image))
+;;         (draw (beside-right (below-top image)))
+;;         (draw (beside-right (below-bottom image)))
+;;         (recur (beside-right image) (- n 1)))))
 
 ;; (defn up-split [image n]
-;;   (let [id (gensym)]
-;;     (new-canvas id "400px" "400px")
-;;     (if (= n 0)
-;;       image
-;;       (let [smaller (up-split (below-top image) (- n 1))]
-;;         (do
-;;           (draw (below-bottom image) id)
-;;           (draw (below-top (beside-left image)) id)
-;;           (draw (below-top (beside-right image)) id))))))
-
-;; (defn corner-split [image n]
-;;   (let [id (gensym)]
+;;   (if (zero? n)
+;;     image
 ;;     (do
-;;       (new-canvas id "400px" "400px")
-;;       (draw (beside-left (below-bottom image)) id)
+;;       (draw (below-bottom image))
+;;       (draw (below-top (beside-left image)))
+;;       (draw (below-top (beside-right image)))
+;;       (recur (below-top image) (- n 1)))))
+            
+;; (defn corner-split [image n]
+;;   (if (zero? n)
+;;     image
+;;     (do
+;;       (draw (beside-left (below-bottom image)))
 ;;       (right-split (beside-right (below-bottom image)) n)
 ;;       (up-split (beside-left (below-top image)) n)
-;;       (corner-split (beside-right (below-top image)) (- n 1)))))
-    
+;;       (recur (beside-right (below-top image)) (- n 1)))))
+
 ;; (defn square-limit [image n]
 ;;   (corner-split (flip-horiz (below-top (beside-left image))) n)
 ;;   (corner-split (below-top (beside-right image)) n)

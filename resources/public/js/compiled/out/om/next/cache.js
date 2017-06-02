@@ -55,4 +55,4 @@ om.next.cache.cache = (function om$next$cache$cache(size){
 return (new om.next.cache.Cache([],cljs.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY),size));
 });
 
-//# sourceMappingURL=cache.js.map?rel=1496385390308
+//# sourceMappingURL=cache.js.map?rel=1496386683162
