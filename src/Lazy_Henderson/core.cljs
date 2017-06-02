@@ -3,7 +3,7 @@
             [om.next :as om :refer [defui ui]]
             [om.dom :as dom]))
 
-;; (enable-console-print!)
+(enable-console-print!)
 
 ;; FRAME CONSTRUCTORS AND SELECTORS
 
@@ -50,31 +50,31 @@
 
 ;; DATASTORE
 
-(def store (atom {;; :ctx (.getContext
-                  ;; (.getElementById js/document "canvas") "2d"),
-                  :segment-list (list
-                                 (make-segment (make-vect .25 0) (make-vect .35 .5))
-                                 (make-segment (make-vect .35 .5) (make-vect .3 .6))
-                                 (make-segment (make-vect .3 .6) (make-vect .15 .4))
-                                 (make-segment (make-vect .15 .4) (make-vect 0 .65))
-                                 (make-segment (make-vect 0 .65) (make-vect 0 .85))
-                                 (make-segment (make-vect 0 .85) (make-vect .15 .6))
-                                 (make-segment (make-vect .15 .6) (make-vect .3 .65))
-                                 (make-segment (make-vect .3 .65) (make-vect .4 .65))
-                                 (make-segment (make-vect .4 .65) (make-vect .35 .85))
-                                 (make-segment (make-vect .35 .85) (make-vect .4 1))
-                                 (make-segment (make-vect .4 1) (make-vect .6 1))
-                                 (make-segment (make-vect .6 1) (make-vect .65 .85))
-                                 (make-segment (make-vect .65 .85) (make-vect .6 .65))
-                                 (make-segment (make-vect .6 .65) (make-vect .75 .65))
-                                 (make-segment (make-vect .75 .65) (make-vect 1 .35))
-                                 (make-segment (make-vect 1 .35) (make-vect 1 .15))
-                                 (make-segment (make-vect 1 .15) (make-vect .6 .45))
-                                 (make-segment (make-vect .6 .45) (make-vect .75 0))
-                                 (make-segment (make-vect .75 0) (make-vect .6 0))
-                                 (make-segment (make-vect .6 0) (make-vect .5 .3))
-                                 (make-segment (make-vect .5 .3) (make-vect .4 0))
-                                 (make-segment (make-vect .4 0) (make-vect .25 0)))}))
+(def segment-list (list
+                   (make-segment (make-vect .25 0) (make-vect .35 .5))
+                   (make-segment (make-vect .35 .5) (make-vect .3 .6))
+                   (make-segment (make-vect .3 .6) (make-vect .15 .4))
+                   (make-segment (make-vect .15 .4) (make-vect 0 .65))
+                   (make-segment (make-vect 0 .65) (make-vect 0 .85))
+                   (make-segment (make-vect 0 .85) (make-vect .15 .6))
+                   (make-segment (make-vect .15 .6) (make-vect .3 .65))
+                   (make-segment (make-vect .3 .65) (make-vect .4 .65))
+                   (make-segment (make-vect .4 .65) (make-vect .35 .85))
+                   (make-segment (make-vect .35 .85) (make-vect .4 1))
+                   (make-segment (make-vect .4 1) (make-vect .6 1))
+                   (make-segment (make-vect .6 1) (make-vect .65 .85))
+                   (make-segment (make-vect .65 .85) (make-vect .6 .65))
+                   (make-segment (make-vect .6 .65) (make-vect .75 .65))
+                   (make-segment (make-vect .75 .65) (make-vect 1 .35))
+                   (make-segment (make-vect 1 .35) (make-vect 1 .15))
+                   (make-segment (make-vect 1 .15) (make-vect .6 .45))
+                   (make-segment (make-vect .6 .45) (make-vect .75 0))
+                   (make-segment (make-vect .75 0) (make-vect .6 0))
+                   (make-segment (make-vect .6 0) (make-vect .5 .3))
+                   (make-segment (make-vect .5 .3) (make-vect .4 0))
+                   (make-segment (make-vect .4 0) (make-vect .25 0))))
+
+(def store (atom {}))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -85,6 +85,18 @@
 
 (defui canvas
   Object
+  (componentDidMount [this]
+                     (om/set-state! this
+                                    {:ctx (.getContext
+                                           (.getElementById js/document
+                                                            (get-in (om/props this) [:keys :id]))
+                                           "2d")})
+
+                     ;; (swap! store assoc-in [this :ctx]
+                     ;;            (.getContext
+                     ;;             (.getElementById js/document (str id)) "2d"))
+
+                     )
   (render [this]
           (let [{:keys [id width height]} (om/props this)]
             (dom/input #js
@@ -92,7 +104,7 @@
                         :width width
                         :height height
                         }))))
-  
+
 (def canvas-factory (om/factory canvas))
 
 (defui canvas-generator
@@ -110,14 +122,9 @@
               canvas-generator (gdom/getElement "app"))
 
 (defn new-canvas [id width height]
-  (let [str-id (str id)
-        key-id (keyword id)]
-    (swap! store assoc key-id
-           {:id str-id, :width width, :height height})
-    (swap! store assoc-in [key-id :ctx]
-           (.getContext
-            (.getElementById js/document (str id)) "2d"))
-    id))
+  (swap! store assoc (keyword id)
+         {:id (str id), :width width, :height height})
+  id)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -150,7 +157,6 @@
 
 (defn draw [image canvas]
   (let [ctx (get-in @store [(keyword canvas) :ctx])
-        segment-list (get @store :segment-list)
         frame (get @store (keyword image))]
     (transform-painter frame ctx)
     (draw-painter segment-list ctx)))
@@ -357,3 +363,6 @@
 ;; (corner-split (painter "george") 5)
 
 ;; (square-limit (painter "george") 5)
+
+(new-canvas 'foo "400px" "400px")
+(print @store)
