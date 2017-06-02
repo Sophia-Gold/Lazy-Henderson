@@ -80,7 +80,9 @@
 (defn transform-painter [frame ctx]
   (apply #(.setTransform ctx %1 %2 %3 %4 %5 %6) frame))
 
-(defn draw-painter [segment-list ctx ]
+(defn draw-painter [segment-list ctx]
+  (.beginPath ctx)
+  (.moveTo ctx (first segment-list) (fnext segment-list))
   (run!
    (fn [segment]
      (.lineTo
@@ -92,7 +94,8 @@
       (xcor-vect (end-segment segment))
       (ycor-vect (end-segment segment))))
    segment-list)
-  (set! (.-lineWidth ctx) .01)
+  (.closePath ctx)
+  (set! (.-lineWidth ctx) .05)
   (.stroke ctx))
 
 (defn painter [image]
@@ -235,28 +238,31 @@
 ;; COMPLEX COMBINING PROCEDURES
 
 (defn right-split [image n]
-  (if (= n 0)
+  (if (zero? n)
       image
-      (let [smaller (right-split (beside-right image) (- n 1))]
-        (do
-          (draw (beside-left image))
-          (draw (beside-right (below-top image)))
-          (draw (beside-right (below-bottom image)))))))
+      (do
+        (draw (beside-left image))
+        (draw (beside-right (below-top image)))
+        (draw (beside-right (below-bottom image)))
+        (recur (beside-right image) (- n 1)))))
 
 (defn up-split [image n]
-  (if (= n 0)
+  (if (zero? n)
     image
-    (let [smaller (up-split (below-top image) (- n 1))]
-      (do
-        (draw (below-bottom image))
-        (draw (below-top (beside-left image)))
-        (draw (below-top (beside-right image)))))))
-
+    (do
+      (draw (below-bottom image))
+      (draw (below-top (beside-left image)))
+      (draw (below-top (beside-right image)))
+      (recur (below-top image) (- n 1)))))
+            
 (defn corner-split [image n]
-  (draw (beside-left (below-bottom image)))
-  (right-split (beside-right (below-bottom image)) n)
-  (up-split (beside-left (below-top image)) n)
-  (corner-split (beside-right (below-top image)) (- n 1)))
+  (if (zero? n)
+    image
+    (do
+      (draw (beside-left (below-bottom image)))
+      (right-split (beside-right (below-bottom image)) n)
+      (up-split (beside-left (below-top image)) n)
+      (recur (beside-right (below-top image)) (- n 1)))))
 
 (defn square-limit [image n]
   (corner-split (flip-horiz (below-top (beside-left image))) n)

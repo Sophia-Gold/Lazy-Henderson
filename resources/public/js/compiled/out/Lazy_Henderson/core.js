@@ -86,18 +86,24 @@ return cljs.core._conj.call(null,cljs.core.List.EMPTY,x__27520__auto____$21);
 })(),x__27520__auto__);
 })()], null));
 Lazy_Henderson.core.transform_painter = (function Lazy_Henderson$core$transform_painter(frame,ctx){
-return cljs.core.apply.call(null,(function (p1__35980_SHARP_,p2__35981_SHARP_,p3__35982_SHARP_,p4__35983_SHARP_,p5__35984_SHARP_,p6__35985_SHARP_){
-return ctx.setTransform(p1__35980_SHARP_,p2__35981_SHARP_,p3__35982_SHARP_,p4__35983_SHARP_,p5__35984_SHARP_,p6__35985_SHARP_);
+return cljs.core.apply.call(null,(function (p1__37586_SHARP_,p2__37587_SHARP_,p3__37588_SHARP_,p4__37589_SHARP_,p5__37590_SHARP_,p6__37591_SHARP_){
+return ctx.setTransform(p1__37586_SHARP_,p2__37587_SHARP_,p3__37588_SHARP_,p4__37589_SHARP_,p5__37590_SHARP_,p6__37591_SHARP_);
 }),frame);
 });
 Lazy_Henderson.core.draw_painter = (function Lazy_Henderson$core$draw_painter(segment_list,ctx){
+ctx.beginPath();
+
+ctx.moveTo(cljs.core.first.call(null,segment_list),cljs.core.fnext.call(null,segment_list));
+
 cljs.core.run_BANG_.call(null,(function (segment){
 ctx.lineTo(Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.start_segment.call(null,segment)),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.start_segment.call(null,segment)));
 
 return ctx.lineTo(Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.end_segment.call(null,segment)),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.end_segment.call(null,segment)));
 }),segment_list);
 
-ctx.lineWidth = .01;
+ctx.closePath();
+
+ctx.lineWidth = .05;
 
 return ctx.stroke();
 });
@@ -197,37 +203,64 @@ Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,La
 return Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.flip_vert.call(null,image))));
 });
 Lazy_Henderson.core.right_split = (function Lazy_Henderson$core$right_split(image,n){
-if(cljs.core._EQ_.call(null,n,(0))){
+while(true){
+if((n === (0))){
 return image;
 } else {
-var smaller = Lazy_Henderson$core$right_split.call(null,Lazy_Henderson.core.beside_right.call(null,image),(n - (1)));
 Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_left.call(null,image));
 
 Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_top.call(null,image)));
 
-return Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_bottom.call(null,image)));
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_bottom.call(null,image)));
+
+var G__37592 = Lazy_Henderson.core.beside_right.call(null,image);
+var G__37593 = (n - (1));
+image = G__37592;
+n = G__37593;
+continue;
+}
+break;
 }
 });
 Lazy_Henderson.core.up_split = (function Lazy_Henderson$core$up_split(image,n){
-if(cljs.core._EQ_.call(null,n,(0))){
+while(true){
+if((n === (0))){
 return image;
 } else {
-var smaller = Lazy_Henderson$core$up_split.call(null,Lazy_Henderson.core.below_top.call(null,image),(n - (1)));
 Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,image));
 
 Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_left.call(null,image)));
 
-return Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_right.call(null,image)));
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_right.call(null,image)));
+
+var G__37594 = Lazy_Henderson.core.below_top.call(null,image);
+var G__37595 = (n - (1));
+image = G__37594;
+n = G__37595;
+continue;
+}
+break;
 }
 });
 Lazy_Henderson.core.corner_split = (function Lazy_Henderson$core$corner_split(image,n){
+while(true){
+if((n === (0))){
+return image;
+} else {
 Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_left.call(null,Lazy_Henderson.core.below_bottom.call(null,image)));
 
 Lazy_Henderson.core.right_split.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_bottom.call(null,image)),n);
 
 Lazy_Henderson.core.up_split.call(null,Lazy_Henderson.core.beside_left.call(null,Lazy_Henderson.core.below_top.call(null,image)),n);
 
-return Lazy_Henderson$core$corner_split.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_top.call(null,image)),(n - (1)));
+var G__37596 = Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_top.call(null,image));
+var G__37597 = (n - (1));
+image = G__37596;
+n = G__37597;
+continue;
+}
+break;
+}
 });
 Lazy_Henderson.core.square_limit = (function Lazy_Henderson$core$square_limit(image,n){
 Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_horiz.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_left.call(null,image))),n);
@@ -240,4 +273,4 @@ return Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_vert.
 });
 Lazy_Henderson.core.square_limit.call(null,Lazy_Henderson.core.painter.call(null,"george"),(5));
 
-//# sourceMappingURL=core.js.map?rel=1492672087084
+//# sourceMappingURL=core.js.map?rel=1496384620107
