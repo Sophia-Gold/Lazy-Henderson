@@ -40,7 +40,160 @@ return cljs.core.subvec.call(null,frame,(2),(4));
 Lazy_Henderson.core.origin_frame = (function Lazy_Henderson$core$origin_frame(frame){
 return cljs.core.subvec.call(null,frame,(4),(6));
 });
-Lazy_Henderson.core.store = cljs.core.atom.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"ctx","ctx",-493610118),document.getElementById("canvas").getContext("2d"),new cljs.core.Keyword(null,"segment-list","segment-list",-581798026),(function (){var x__27520__auto__ = Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.25,(0)),Lazy_Henderson.core.make_vect.call(null,.35,.5));
+Lazy_Henderson.core.transform_painter = (function Lazy_Henderson$core$transform_painter(ctx,frame){
+return cljs.core.apply.call(null,(function (p1__40384_SHARP_,p2__40385_SHARP_,p3__40386_SHARP_,p4__40387_SHARP_,p5__40388_SHARP_,p6__40389_SHARP_){
+return ctx.setTransform(p1__40384_SHARP_,p2__40385_SHARP_,p3__40386_SHARP_,p4__40387_SHARP_,p5__40388_SHARP_,p6__40389_SHARP_);
+}),frame);
+});
+Lazy_Henderson.core.draw_painter = (function Lazy_Henderson$core$draw_painter(ctx,image){
+ctx.beginPath();
+
+ctx.moveTo(cljs.core.first.call(null,image),cljs.core.fnext.call(null,image));
+
+cljs.core.run_BANG_.call(null,(function (segment){
+ctx.lineTo(Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.start_segment.call(null,segment)),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.start_segment.call(null,segment)));
+
+return ctx.lineTo(Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.end_segment.call(null,segment)),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.end_segment.call(null,segment)));
+}),image);
+
+ctx.closePath();
+
+ctx.lineWidth = 0.05;
+
+return ctx.stroke();
+});
+Lazy_Henderson.core.draw = (function Lazy_Henderson$core$draw(store){
+var ctx = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"ctx","ctx",-493610118));
+var image = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"image","image",-58725096));
+var frame = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588));
+Lazy_Henderson.core.transform_painter.call(null,ctx,frame);
+
+return Lazy_Henderson.core.draw_painter.call(null,ctx,image);
+});
+Lazy_Henderson.core.flip_vert = (function Lazy_Henderson$core$flip_vert(store){
+var old_frame = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588));
+var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame),Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)),(- Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)))),Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)),(Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)) + Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)))));
+return cljs.core.assoc.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588),new_frame);
+});
+Lazy_Henderson.core.flip_horiz = (function Lazy_Henderson$core$flip_horiz(store){
+var old_frame = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588));
+var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.make_vect.call(null,(- Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame))),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame))),Lazy_Henderson.core.edge2_frame.call(null,old_frame),Lazy_Henderson.core.make_vect.call(null,(Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)) + Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame))),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame))));
+return cljs.core.assoc.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588),new_frame);
+});
+Lazy_Henderson.core.rotate90 = (function Lazy_Henderson$core$rotate90(store){
+var old_frame = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588));
+var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame)),Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame))),Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)),(- Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)))),Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)),(Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)) + Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)))));
+return cljs.core.assoc.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588),new_frame);
+});
+Lazy_Henderson.core.beside_left = (function Lazy_Henderson$core$beside_left(store){
+var old_frame = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588));
+var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge1_frame.call(null,old_frame)),Lazy_Henderson.core.edge2_frame.call(null,old_frame),Lazy_Henderson.core.origin_frame.call(null,old_frame));
+return cljs.core.assoc.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588),new_frame);
+});
+Lazy_Henderson.core.beside_right = (function Lazy_Henderson$core$beside_right(store){
+var old_frame = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588));
+var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge1_frame.call(null,old_frame)),Lazy_Henderson.core.edge2_frame.call(null,old_frame),Lazy_Henderson.core.add_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame),Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge1_frame.call(null,old_frame))));
+return cljs.core.assoc.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588),new_frame);
+});
+Lazy_Henderson.core.beside = (function Lazy_Henderson$core$beside(store){
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_left.call(null,store));
+
+return Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_right.call(null,store));
+});
+Lazy_Henderson.core.below_top = (function Lazy_Henderson$core$below_top(store){
+var old_frame = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588));
+var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame),Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge2_frame.call(null,old_frame)),Lazy_Henderson.core.add_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame),Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge2_frame.call(null,old_frame))));
+return cljs.core.assoc.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588),new_frame);
+});
+Lazy_Henderson.core.below_bottom = (function Lazy_Henderson$core$below_bottom(store){
+var old_frame = cljs.core.get.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588));
+var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame),Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge2_frame.call(null,old_frame)),Lazy_Henderson.core.origin_frame.call(null,old_frame));
+return cljs.core.assoc.call(null,store,new cljs.core.Keyword(null,"frame","frame",-1711082588),new_frame);
+});
+Lazy_Henderson.core.below = (function Lazy_Henderson$core$below(store){
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,store));
+
+return Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,store));
+});
+Lazy_Henderson.core.flipped_pairs = (function Lazy_Henderson$core$flipped_pairs(store){
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_left.call(null,store)));
+
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.flip_vert.call(null,store))));
+
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_left.call(null,store)));
+
+return Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.flip_vert.call(null,store))));
+});
+Lazy_Henderson.core.right_split = (function Lazy_Henderson$core$right_split(store,n){
+while(true){
+if((n === (0))){
+return store;
+} else {
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_left.call(null,store));
+
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_top.call(null,store)));
+
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_bottom.call(null,store)));
+
+var G__40390 = Lazy_Henderson.core.beside_right.call(null,store);
+var G__40391 = (n - (1));
+store = G__40390;
+n = G__40391;
+continue;
+}
+break;
+}
+});
+Lazy_Henderson.core.up_split = (function Lazy_Henderson$core$up_split(store,n){
+while(true){
+if((n === (0))){
+return store;
+} else {
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,store));
+
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_left.call(null,store)));
+
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_right.call(null,store)));
+
+var G__40392 = Lazy_Henderson.core.below_top.call(null,store);
+var G__40393 = (n - (1));
+store = G__40392;
+n = G__40393;
+continue;
+}
+break;
+}
+});
+Lazy_Henderson.core.corner_split = (function Lazy_Henderson$core$corner_split(store,n){
+while(true){
+if((n === (0))){
+return store;
+} else {
+Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_left.call(null,Lazy_Henderson.core.below_bottom.call(null,store)));
+
+Lazy_Henderson.core.right_split.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_bottom.call(null,store)),n);
+
+Lazy_Henderson.core.up_split.call(null,Lazy_Henderson.core.beside_left.call(null,Lazy_Henderson.core.below_top.call(null,store)),n);
+
+var G__40394 = Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_top.call(null,store));
+var G__40395 = (n - (1));
+store = G__40394;
+n = G__40395;
+continue;
+}
+break;
+}
+});
+Lazy_Henderson.core.square_limit = (function Lazy_Henderson$core$square_limit(store,n){
+Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_horiz.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_left.call(null,store))),n);
+
+Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_right.call(null,store)),n);
+
+Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_vert.call(null,Lazy_Henderson.core.flip_horiz.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_left.call(null,store)))),n);
+
+return Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_vert.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_right.call(null,store))),n);
+});
+Lazy_Henderson.core.george = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"ctx","ctx",-493610118),document.getElementById("canvas").getContext("2d"),new cljs.core.Keyword(null,"image","image",-58725096),(function (){var x__27520__auto__ = Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.25,(0)),Lazy_Henderson.core.make_vect.call(null,.35,.5));
 return cljs.core._conj.call(null,(function (){var x__27520__auto____$1 = Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.35,.5),Lazy_Henderson.core.make_vect.call(null,.3,.6));
 return cljs.core._conj.call(null,(function (){var x__27520__auto____$2 = Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.3,.6),Lazy_Henderson.core.make_vect.call(null,.15,.4));
 return cljs.core._conj.call(null,(function (){var x__27520__auto____$3 = Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.15,.4),Lazy_Henderson.core.make_vect.call(null,(0),.65));
@@ -84,193 +237,7 @@ return cljs.core._conj.call(null,cljs.core.List.EMPTY,x__27520__auto____$21);
 })(),x__27520__auto____$2);
 })(),x__27520__auto____$1);
 })(),x__27520__auto__);
-})()], null));
-Lazy_Henderson.core.transform_painter = (function Lazy_Henderson$core$transform_painter(frame,ctx){
-return cljs.core.apply.call(null,(function (p1__37586_SHARP_,p2__37587_SHARP_,p3__37588_SHARP_,p4__37589_SHARP_,p5__37590_SHARP_,p6__37591_SHARP_){
-return ctx.setTransform(p1__37586_SHARP_,p2__37587_SHARP_,p3__37588_SHARP_,p4__37589_SHARP_,p5__37590_SHARP_,p6__37591_SHARP_);
-}),frame);
-});
-Lazy_Henderson.core.draw_painter = (function Lazy_Henderson$core$draw_painter(segment_list,ctx){
-ctx.beginPath();
+})(),new cljs.core.Keyword(null,"frame","frame",-1711082588),Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.make_vect.call(null,(400),(0)),Lazy_Henderson.core.make_vect.call(null,(0),(-400)),Lazy_Henderson.core.make_vect.call(null,(0),(400)))], null);
+Lazy_Henderson.core.square_limit.call(null,Lazy_Henderson.core.george,(5));
 
-ctx.moveTo(cljs.core.first.call(null,segment_list),cljs.core.fnext.call(null,segment_list));
-
-cljs.core.run_BANG_.call(null,(function (segment){
-ctx.lineTo(Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.start_segment.call(null,segment)),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.start_segment.call(null,segment)));
-
-return ctx.lineTo(Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.end_segment.call(null,segment)),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.end_segment.call(null,segment)));
-}),segment_list);
-
-ctx.closePath();
-
-ctx.lineWidth = .05;
-
-return ctx.stroke();
-});
-Lazy_Henderson.core.painter = (function Lazy_Henderson$core$painter(image){
-cljs.core.swap_BANG_.call(null,Lazy_Henderson.core.store,cljs.core.assoc,cljs.core.keyword.call(null,image),Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.make_vect.call(null,(400),(0)),Lazy_Henderson.core.make_vect.call(null,(0),(-400)),Lazy_Henderson.core.make_vect.call(null,(0),(400))));
-
-return image;
-});
-Lazy_Henderson.core.draw = (function Lazy_Henderson$core$draw(image){
-var ctx = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),new cljs.core.Keyword(null,"ctx","ctx",-493610118));
-var segment_list = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),new cljs.core.Keyword(null,"segment-list","segment-list",-581798026));
-var frame = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),cljs.core.keyword.call(null,image));
-Lazy_Henderson.core.transform_painter.call(null,frame,ctx);
-
-return Lazy_Henderson.core.draw_painter.call(null,segment_list,ctx);
-});
-Lazy_Henderson.core.flip_vert = (function Lazy_Henderson$core$flip_vert(image){
-var old_image = cljs.core.keyword.call(null,image);
-var new_image = cljs.core.keyword.call(null,cljs.core.gensym.call(null,[cljs.core.str(image)].join('')));
-var old_frame = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),old_image);
-var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame),Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)),(- Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)))),Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)),(Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)) + Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)))));
-cljs.core.swap_BANG_.call(null,Lazy_Henderson.core.store,cljs.core.assoc,new_image,new_frame);
-
-return new_image;
-});
-Lazy_Henderson.core.flip_horiz = (function Lazy_Henderson$core$flip_horiz(image){
-var old_image = cljs.core.keyword.call(null,image);
-var new_image = cljs.core.keyword.call(null,cljs.core.gensym.call(null,[cljs.core.str(image)].join('')));
-var old_frame = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),old_image);
-var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.make_vect.call(null,(- Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame))),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame))),Lazy_Henderson.core.edge2_frame.call(null,old_frame),Lazy_Henderson.core.make_vect.call(null,(Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)) + Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame))),Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame))));
-cljs.core.swap_BANG_.call(null,Lazy_Henderson.core.store,cljs.core.assoc,new_image,new_frame);
-
-return new_image;
-});
-Lazy_Henderson.core.rotate90 = (function Lazy_Henderson$core$rotate90(image){
-var old_image = cljs.core.keyword.call(null,image);
-var new_image = cljs.core.keyword.call(null,cljs.core.gensym.call(null,[cljs.core.str(image)].join('')));
-var old_frame = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),old_image);
-var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame)),Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame))),Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)),(- Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)))),Lazy_Henderson.core.make_vect.call(null,Lazy_Henderson.core.xcor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)),(Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame)) + Lazy_Henderson.core.ycor_vect.call(null,Lazy_Henderson.core.edge2_frame.call(null,old_frame)))));
-cljs.core.swap_BANG_.call(null,Lazy_Henderson.core.store,cljs.core.assoc,new_image,new_frame);
-
-return new_image;
-});
-Lazy_Henderson.core.beside_left = (function Lazy_Henderson$core$beside_left(image){
-var old_image = cljs.core.keyword.call(null,image);
-var new_image = cljs.core.keyword.call(null,cljs.core.gensym.call(null,[cljs.core.str(image)].join('')));
-var old_frame = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),old_image);
-var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge1_frame.call(null,old_frame)),Lazy_Henderson.core.edge2_frame.call(null,old_frame),Lazy_Henderson.core.origin_frame.call(null,old_frame));
-cljs.core.swap_BANG_.call(null,Lazy_Henderson.core.store,cljs.core.assoc,new_image,new_frame);
-
-return new_image;
-});
-Lazy_Henderson.core.beside_right = (function Lazy_Henderson$core$beside_right(image){
-var old_image = cljs.core.keyword.call(null,image);
-var new_image = cljs.core.keyword.call(null,cljs.core.gensym.call(null,[cljs.core.str(image)].join('')));
-var old_frame = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),old_image);
-var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge1_frame.call(null,old_frame)),Lazy_Henderson.core.edge2_frame.call(null,old_frame),Lazy_Henderson.core.add_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame),Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge1_frame.call(null,old_frame))));
-cljs.core.swap_BANG_.call(null,Lazy_Henderson.core.store,cljs.core.assoc,new_image,new_frame);
-
-return new_image;
-});
-Lazy_Henderson.core.beside = (function Lazy_Henderson$core$beside(left_image,right_image){
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_left.call(null,left_image));
-
-return Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_right.call(null,right_image));
-});
-Lazy_Henderson.core.below_top = (function Lazy_Henderson$core$below_top(image){
-var old_image = cljs.core.keyword.call(null,image);
-var new_image = cljs.core.keyword.call(null,cljs.core.gensym.call(null,[cljs.core.str(image)].join('')));
-var old_frame = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),old_image);
-var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame),Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge2_frame.call(null,old_frame)),Lazy_Henderson.core.add_vect.call(null,Lazy_Henderson.core.origin_frame.call(null,old_frame),Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge2_frame.call(null,old_frame))));
-cljs.core.swap_BANG_.call(null,Lazy_Henderson.core.store,cljs.core.assoc,new_image,new_frame);
-
-return new_image;
-});
-Lazy_Henderson.core.below_bottom = (function Lazy_Henderson$core$below_bottom(image){
-var old_image = cljs.core.keyword.call(null,image);
-var new_image = cljs.core.keyword.call(null,cljs.core.gensym.call(null,[cljs.core.str(image)].join('')));
-var old_frame = cljs.core.get.call(null,cljs.core.deref.call(null,Lazy_Henderson.core.store),old_image);
-var new_frame = Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.edge1_frame.call(null,old_frame),Lazy_Henderson.core.scale_vect.call(null,0.5,Lazy_Henderson.core.edge2_frame.call(null,old_frame)),Lazy_Henderson.core.origin_frame.call(null,old_frame));
-cljs.core.swap_BANG_.call(null,Lazy_Henderson.core.store,cljs.core.assoc,new_image,new_frame);
-
-return new_image;
-});
-Lazy_Henderson.core.below = (function Lazy_Henderson$core$below(top_image,bottom_image){
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,top_image));
-
-return Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,bottom_image));
-});
-Lazy_Henderson.core.flipped_pairs = (function Lazy_Henderson$core$flipped_pairs(image){
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_left.call(null,image)));
-
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.flip_vert.call(null,image))));
-
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_left.call(null,image)));
-
-return Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.flip_vert.call(null,image))));
-});
-Lazy_Henderson.core.right_split = (function Lazy_Henderson$core$right_split(image,n){
-while(true){
-if((n === (0))){
-return image;
-} else {
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_left.call(null,image));
-
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_top.call(null,image)));
-
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_bottom.call(null,image)));
-
-var G__37592 = Lazy_Henderson.core.beside_right.call(null,image);
-var G__37593 = (n - (1));
-image = G__37592;
-n = G__37593;
-continue;
-}
-break;
-}
-});
-Lazy_Henderson.core.up_split = (function Lazy_Henderson$core$up_split(image,n){
-while(true){
-if((n === (0))){
-return image;
-} else {
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,image));
-
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_left.call(null,image)));
-
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_right.call(null,image)));
-
-var G__37594 = Lazy_Henderson.core.below_top.call(null,image);
-var G__37595 = (n - (1));
-image = G__37594;
-n = G__37595;
-continue;
-}
-break;
-}
-});
-Lazy_Henderson.core.corner_split = (function Lazy_Henderson$core$corner_split(image,n){
-while(true){
-if((n === (0))){
-return image;
-} else {
-Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_left.call(null,Lazy_Henderson.core.below_bottom.call(null,image)));
-
-Lazy_Henderson.core.right_split.call(null,Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_bottom.call(null,image)),n);
-
-Lazy_Henderson.core.up_split.call(null,Lazy_Henderson.core.beside_left.call(null,Lazy_Henderson.core.below_top.call(null,image)),n);
-
-var G__37596 = Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_top.call(null,image));
-var G__37597 = (n - (1));
-image = G__37596;
-n = G__37597;
-continue;
-}
-break;
-}
-});
-Lazy_Henderson.core.square_limit = (function Lazy_Henderson$core$square_limit(image,n){
-Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_horiz.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_left.call(null,image))),n);
-
-Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.beside_right.call(null,image)),n);
-
-Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_vert.call(null,Lazy_Henderson.core.flip_horiz.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_left.call(null,image)))),n);
-
-return Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_vert.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_right.call(null,image))),n);
-});
-Lazy_Henderson.core.square_limit.call(null,Lazy_Henderson.core.painter.call(null,"george"),(5));
-
-//# sourceMappingURL=core.js.map?rel=1496384620107
+//# sourceMappingURL=core.js.map?rel=1496888644114
