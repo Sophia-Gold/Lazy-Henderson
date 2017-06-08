@@ -184,19 +184,15 @@
   (if (zero? n)
     store
     (do
-      (draw (beside-left store))
-      (draw (beside-right (below-top store)))
-      (draw (beside-right (below-bottom store)))
-      (recur (beside-right store) (- n 1)))))
-
+      (draw (beside-left (flip-vert store)))
+      (recur (beside-right (flip-vert store)) (- n 1)))))
+    
 (defn up-split [store n]
   (if (zero? n)
     store
     (do
-      (draw (below-bottom store))
-      (draw (below-top (beside-left store)))
-      (draw (below-top (beside-right store)))
-      (recur (below-top store) (- n 1)))))
+      (draw (below-bottom (flip-horiz store)))
+      (recur (below-top (flip-horiz store)) (- n 1)))))
             
 (defn corner-split [store n]
   (if (zero? n)
@@ -206,7 +202,7 @@
       (right-split (beside-right (below-bottom store)) n)
       (up-split (beside-left (below-top store)) n)
       (recur (beside-right (below-top store)) (- n 1)))))
-
+  
 (defn square-limit [store n]
   (corner-split (flip-horiz (below-top (beside-left store))) n)
   (corner-split (below-top (beside-right store)) n)
@@ -220,8 +216,7 @@
 (def george
   {:ctx (.getContext
          (.getElementById js/document "canvas") "2d")
-   :image (list
-           (make-segment (make-vect .25 0) (make-vect .35 .5))
+   :image [(make-segment (make-vect .25 0) (make-vect .35 .5))
            (make-segment (make-vect .35 .5) (make-vect .3 .6))
            (make-segment (make-vect .3 .6) (make-vect .15 .4))
            (make-segment (make-vect .15 .4) (make-vect 0 .65))
@@ -242,7 +237,7 @@
            (make-segment (make-vect .75 0) (make-vect .6 0))
            (make-segment (make-vect .6 0) (make-vect .5 .3))
            (make-segment (make-vect .5 .3) (make-vect .4 0))
-           (make-segment (make-vect .4 0) (make-vect .25 0)))
+           (make-segment (make-vect .4 0) (make-vect .25 0))]
    :frame (make-frame (make-vect 400 0)
                       (make-vect 0 -400)
                       (make-vect 0 400))})
