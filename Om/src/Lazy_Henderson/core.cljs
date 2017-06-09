@@ -3,7 +3,7 @@
             [om.next :as om :refer [defui ui]]
             [om.dom :as dom]))
 
-(enable-console-print!)
+;; (enable-console-print!)
 
 ;; FRAME CONSTRUCTORS AND SELECTORS
 
@@ -92,13 +92,6 @@
 
 (om/add-root! reconciler
               slider-generator (gdom/getElement "app"))
-
-(defn component [component]
-  (swap! store assoc (keyword component)
-         (make-frame (make-vect 1 0)
-                     (make-vect 0 1)
-                     (make-vect 0 0)))
-  component)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -228,29 +221,28 @@
 ;; COMPLEX COMBINING PROCEDURES
 
 (defn right-split [component n]
-  (if (= n 0)
-      component
-      (let [smaller (right-split (beside-right component) (- n 1))]
-        (do
-          (beside-left component)
-          (beside-right (below-top component))
-          (beside-right (below-bottom component))))))
-
-(defn up-split [component n]
-  (if (= n 0)
+  (if (zero? n)
     component
-    (let [smaller (up-split (below-top component) (- n 1))]
-      (do
-        (below-bottom component)
-        (below-top (beside-left component))
-        (below-top (beside-right component))))))
-
+    (do
+      (beside-left (flip-vert component))
+      (recur (beside-right (flip-vert component)) (- n 1)))))
+    
+(defn up-split [component n]
+  (if (zero? n)
+    component
+    (do
+      (below-bottom (flip-horiz component))
+      (recur (below-top (flip-horiz component)) (- n 1)))))
+            
 (defn corner-split [component n]
-  (beside-left (below-bottom component))
-  (right-split (beside-right (below-bottom component)) n)
-  (up-split (beside-left (below-top component)) n)
-  (corner-split (beside-right (below-top component)) (- n 1)))
-
+  (if (zero? n)
+    component
+    (do
+      (beside-left (below-bottom component))
+      (right-split (beside-right (below-bottom component)) n)
+      (up-split (beside-left (below-top component)) n)
+      (recur (beside-right (below-top component)) (- n 1)))))
+  
 (defn square-limit [component n]
   (corner-split (flip-horiz (below-top (beside-left component))) n)
   (corner-split (below-top (beside-right component)) n)
@@ -260,6 +252,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; TESTS
+
+(defn component [component]
+  (swap! store assoc (keyword component)
+         (make-frame (make-vect 1 0)
+                     (make-vect 0 1)
+                     (make-vect 0 1)))
+  component)
 
 ;; (component "slider")
 
@@ -278,9 +277,8 @@
 ;; (flipped-pairs (component "slider"))
 
 ;; (right-split (component "slider") 5)
-(up-split (component "slider") 5)
+;; (up-split (component "slider") 5)
 
 ;; (corner-split (component "slider") 5)
 
-;; (square-limit (component "slider") 5)
-
+(square-limit (component "slider") 5)
