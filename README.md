@@ -3,9 +3,7 @@ Inspired by [Peter Henderson](http://pmh-systems.co.uk/pmhs/)'s seminal papers o
 
 ---
 
-## Usage
-
-A contructor macro, `painter`, takes the id of a canvas in the form of a string as well as the floating point coordinates of a bitmap image:
+A contructor macro, `painter`, takes the id of a html canvas element in the form of a string as well as the floating point coordinates of a vector image:
 
 ```
 ;; (macros/painter <canvas> <image>)
