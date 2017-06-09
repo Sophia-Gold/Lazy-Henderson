@@ -1,4 +1,4 @@
-(defproject Lazy-Henderson "0.1.0"
+(defproject Lazy-Henderson "0.9"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 

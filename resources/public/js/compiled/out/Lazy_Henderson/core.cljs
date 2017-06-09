@@ -1,4 +1,5 @@
-(ns Lazy-Henderson.core)
+(ns Lazy-Henderson.core
+  (:require-macros [Lazy-Henderson.macros :as macros :refer [painter]]))
 
 ;; (enable-console-print!)
 
@@ -213,54 +214,49 @@
 
 ;; TESTS
 
-(def george
-  {:ctx (.getContext
-         (.getElementById js/document "canvas") "2d")
-   :image [(make-segment (make-vect .25 0) (make-vect .35 .5))
-           (make-segment (make-vect .35 .5) (make-vect .3 .6))
-           (make-segment (make-vect .3 .6) (make-vect .15 .4))
-           (make-segment (make-vect .15 .4) (make-vect 0 .65))
-           (make-segment (make-vect 0 .65) (make-vect 0 .85))
-           (make-segment (make-vect 0 .85) (make-vect .15 .6))
-           (make-segment (make-vect .15 .6) (make-vect .3 .65))
-           (make-segment (make-vect .3 .65) (make-vect .4 .65))
-           (make-segment (make-vect .4 .65) (make-vect .35 .85))
-           (make-segment (make-vect .35 .85) (make-vect .4 1))
-           (make-segment (make-vect .4 1) (make-vect .6 1))
-           (make-segment (make-vect .6 1) (make-vect .65 .85))
-           (make-segment (make-vect .65 .85) (make-vect .6 .65))
-           (make-segment (make-vect .6 .65) (make-vect .75 .65))
-           (make-segment (make-vect .75 .65) (make-vect 1 .35))
-           (make-segment (make-vect 1 .35) (make-vect 1 .15))
-           (make-segment (make-vect 1 .15) (make-vect .6 .45))
-           (make-segment (make-vect .6 .45) (make-vect .75 0))
-           (make-segment (make-vect .75 0) (make-vect .6 0))
-           (make-segment (make-vect .6 0) (make-vect .5 .3))
-           (make-segment (make-vect .5 .3) (make-vect .4 0))
-           (make-segment (make-vect .4 0) (make-vect .25 0))]
-   :frame (make-frame (make-vect 400 0)
-                      (make-vect 0 -400)
-                      (make-vect 0 400))})
+(def george [(make-segment (make-vect .25 0) (make-vect .35 .5))
+             (make-segment (make-vect .35 .5) (make-vect .3 .6))
+             (make-segment (make-vect .3 .6) (make-vect .15 .4))
+             (make-segment (make-vect .15 .4) (make-vect 0 .65))
+             (make-segment (make-vect 0 .65) (make-vect 0 .85))
+             (make-segment (make-vect 0 .85) (make-vect .15 .6))
+             (make-segment (make-vect .15 .6) (make-vect .3 .65))
+             (make-segment (make-vect .3 .65) (make-vect .4 .65))
+             (make-segment (make-vect .4 .65) (make-vect .35 .85))
+             (make-segment (make-vect .35 .85) (make-vect .4 1))
+             (make-segment (make-vect .4 1) (make-vect .6 1))
+             (make-segment (make-vect .6 1) (make-vect .65 .85))
+             (make-segment (make-vect .65 .85) (make-vect .6 .65))
+             (make-segment (make-vect .6 .65) (make-vect .75 .65))
+             (make-segment (make-vect .75 .65) (make-vect 1 .35))
+             (make-segment (make-vect 1 .35) (make-vect 1 .15))
+             (make-segment (make-vect 1 .15) (make-vect .6 .45))
+             (make-segment (make-vect .6 .45) (make-vect .75 0))
+             (make-segment (make-vect .75 0) (make-vect .6 0))
+             (make-segment (make-vect .6 0) (make-vect .5 .3))
+             (make-segment (make-vect .5 .3) (make-vect .4 0))
+             (make-segment (make-vect .4 0) (make-vect .25 0))])
 
-;; (draw george)
+;; (draw (macros/painter "canvas" george))
 
-;; (draw (flip-vert george))
-;; (draw (flip-horiz george))
-;; (draw (rotate90 george))
+;; (draw (flip-vert (macros/painter "canvas" george)))
+;; (draw (flip-horiz (macros/painter "canvas" george)))
+;; (draw (rotate90 (macros/painter "canvas" george)))
 
-;; (draw (beside-left george))
-;; (draw (beside-right george))
-;; (beside george)
+;; (draw (beside-left (macros/painter "canvas" george)))
+;; (draw (beside-right (macros/painter "canvas" george)))
+;; (beside (macros/painter "canvas" george))
 
-;; (draw (below-top george))
-;; (draw (below-bottom george))
-;; (below george)
+;; (draw (below-top (macros/painter "canvas" george)))
+;; (draw (below-bottom (macros/painter "canvas" george)))
+;; (below (macros/painter "canvas" george))
 
-;; (flipped-pairs george)
+;; (flipped-pairs (macros/painter "canvas" george))
 
-;; (right-split george 5)
-;; (up-split george 5)
+;; (right-split (macros/painter "canvas" george) 5)
+;; (up-split (macros/painter "canvas" george) 5)
 
-;; (corner-split george 5)
+;; (corner-split (macros/painter "canvas" george) 5)
 
-(square-limit george 5)
+;; (square-limit (macros/painter "canvas" george) 5)
+                                      

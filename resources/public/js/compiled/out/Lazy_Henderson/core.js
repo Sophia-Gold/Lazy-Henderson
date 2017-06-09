@@ -41,8 +41,8 @@ Lazy_Henderson.core.origin_frame = (function Lazy_Henderson$core$origin_frame(fr
 return cljs.core.subvec.call(null,frame,(4),(6));
 });
 Lazy_Henderson.core.transform_painter = (function Lazy_Henderson$core$transform_painter(ctx,frame){
-return cljs.core.apply.call(null,(function (p1__38265_SHARP_,p2__38266_SHARP_,p3__38267_SHARP_,p4__38268_SHARP_,p5__38269_SHARP_,p6__38270_SHARP_){
-return ctx.setTransform(p1__38265_SHARP_,p2__38266_SHARP_,p3__38267_SHARP_,p4__38268_SHARP_,p5__38269_SHARP_,p6__38270_SHARP_);
+return cljs.core.apply.call(null,(function (p1__36890_SHARP_,p2__36891_SHARP_,p3__36892_SHARP_,p4__36893_SHARP_,p5__36894_SHARP_,p6__36895_SHARP_){
+return ctx.setTransform(p1__36890_SHARP_,p2__36891_SHARP_,p3__36892_SHARP_,p4__36893_SHARP_,p5__36894_SHARP_,p6__36895_SHARP_);
 }),frame);
 });
 Lazy_Henderson.core.draw_painter = (function Lazy_Henderson$core$draw_painter(ctx,image){
@@ -131,10 +131,10 @@ return store;
 } else {
 Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.beside_left.call(null,Lazy_Henderson.core.flip_vert.call(null,store)));
 
-var G__38271 = Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.flip_vert.call(null,store));
-var G__38272 = (n - (1));
-store = G__38271;
-n = G__38272;
+var G__36896 = Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.flip_vert.call(null,store));
+var G__36897 = (n - (1));
+store = G__36896;
+n = G__36897;
 continue;
 }
 break;
@@ -147,10 +147,10 @@ return store;
 } else {
 Lazy_Henderson.core.draw.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.flip_horiz.call(null,store)));
 
-var G__38273 = Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.flip_horiz.call(null,store));
-var G__38274 = (n - (1));
-store = G__38273;
-n = G__38274;
+var G__36898 = Lazy_Henderson.core.below_top.call(null,Lazy_Henderson.core.flip_horiz.call(null,store));
+var G__36899 = (n - (1));
+store = G__36898;
+n = G__36899;
 continue;
 }
 break;
@@ -167,10 +167,10 @@ Lazy_Henderson.core.right_split.call(null,Lazy_Henderson.core.beside_right.call(
 
 Lazy_Henderson.core.up_split.call(null,Lazy_Henderson.core.beside_left.call(null,Lazy_Henderson.core.below_top.call(null,store)),n);
 
-var G__38275 = Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_top.call(null,store));
-var G__38276 = (n - (1));
-store = G__38275;
-n = G__38276;
+var G__36900 = Lazy_Henderson.core.beside_right.call(null,Lazy_Henderson.core.below_top.call(null,store));
+var G__36901 = (n - (1));
+store = G__36900;
+n = G__36901;
 continue;
 }
 break;
@@ -185,7 +185,6 @@ Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_vert.call(nu
 
 return Lazy_Henderson.core.corner_split.call(null,Lazy_Henderson.core.flip_vert.call(null,Lazy_Henderson.core.below_bottom.call(null,Lazy_Henderson.core.beside_right.call(null,store))),n);
 });
-Lazy_Henderson.core.george = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"ctx","ctx",-493610118),document.getElementById("canvas").getContext("2d"),new cljs.core.Keyword(null,"image","image",-58725096),new cljs.core.PersistentVector(null, 22, 5, cljs.core.PersistentVector.EMPTY_NODE, [Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.25,(0)),Lazy_Henderson.core.make_vect.call(null,.35,.5)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.35,.5),Lazy_Henderson.core.make_vect.call(null,.3,.6)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.3,.6),Lazy_Henderson.core.make_vect.call(null,.15,.4)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.15,.4),Lazy_Henderson.core.make_vect.call(null,(0),.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,(0),.65),Lazy_Henderson.core.make_vect.call(null,(0),.85)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,(0),.85),Lazy_Henderson.core.make_vect.call(null,.15,.6)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.15,.6),Lazy_Henderson.core.make_vect.call(null,.3,.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.3,.65),Lazy_Henderson.core.make_vect.call(null,.4,.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.4,.65),Lazy_Henderson.core.make_vect.call(null,.35,.85)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.35,.85),Lazy_Henderson.core.make_vect.call(null,.4,(1))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.4,(1)),Lazy_Henderson.core.make_vect.call(null,.6,(1))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.6,(1)),Lazy_Henderson.core.make_vect.call(null,.65,.85)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.65,.85),Lazy_Henderson.core.make_vect.call(null,.6,.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.6,.65),Lazy_Henderson.core.make_vect.call(null,.75,.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.75,.65),Lazy_Henderson.core.make_vect.call(null,(1),.35)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,(1),.35),Lazy_Henderson.core.make_vect.call(null,(1),.15)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,(1),.15),Lazy_Henderson.core.make_vect.call(null,.6,.45)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.6,.45),Lazy_Henderson.core.make_vect.call(null,.75,(0))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.75,(0)),Lazy_Henderson.core.make_vect.call(null,.6,(0))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.6,(0)),Lazy_Henderson.core.make_vect.call(null,.5,.3)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.5,.3),Lazy_Henderson.core.make_vect.call(null,.4,(0))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.4,(0)),Lazy_Henderson.core.make_vect.call(null,.25,(0)))], null),new cljs.core.Keyword(null,"frame","frame",-1711082588),Lazy_Henderson.core.make_frame.call(null,Lazy_Henderson.core.make_vect.call(null,(400),(0)),Lazy_Henderson.core.make_vect.call(null,(0),(-400)),Lazy_Henderson.core.make_vect.call(null,(0),(400)))], null);
-Lazy_Henderson.core.square_limit.call(null,Lazy_Henderson.core.george,(5));
+Lazy_Henderson.core.george = new cljs.core.PersistentVector(null, 22, 5, cljs.core.PersistentVector.EMPTY_NODE, [Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.25,(0)),Lazy_Henderson.core.make_vect.call(null,.35,.5)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.35,.5),Lazy_Henderson.core.make_vect.call(null,.3,.6)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.3,.6),Lazy_Henderson.core.make_vect.call(null,.15,.4)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.15,.4),Lazy_Henderson.core.make_vect.call(null,(0),.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,(0),.65),Lazy_Henderson.core.make_vect.call(null,(0),.85)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,(0),.85),Lazy_Henderson.core.make_vect.call(null,.15,.6)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.15,.6),Lazy_Henderson.core.make_vect.call(null,.3,.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.3,.65),Lazy_Henderson.core.make_vect.call(null,.4,.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.4,.65),Lazy_Henderson.core.make_vect.call(null,.35,.85)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.35,.85),Lazy_Henderson.core.make_vect.call(null,.4,(1))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.4,(1)),Lazy_Henderson.core.make_vect.call(null,.6,(1))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.6,(1)),Lazy_Henderson.core.make_vect.call(null,.65,.85)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.65,.85),Lazy_Henderson.core.make_vect.call(null,.6,.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.6,.65),Lazy_Henderson.core.make_vect.call(null,.75,.65)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.75,.65),Lazy_Henderson.core.make_vect.call(null,(1),.35)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,(1),.35),Lazy_Henderson.core.make_vect.call(null,(1),.15)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,(1),.15),Lazy_Henderson.core.make_vect.call(null,.6,.45)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.6,.45),Lazy_Henderson.core.make_vect.call(null,.75,(0))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.75,(0)),Lazy_Henderson.core.make_vect.call(null,.6,(0))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.6,(0)),Lazy_Henderson.core.make_vect.call(null,.5,.3)),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.5,.3),Lazy_Henderson.core.make_vect.call(null,.4,(0))),Lazy_Henderson.core.make_segment.call(null,Lazy_Henderson.core.make_vect.call(null,.4,(0)),Lazy_Henderson.core.make_vect.call(null,.25,(0)))], null);
 
-//# sourceMappingURL=core.js.map?rel=1496892787948
+//# sourceMappingURL=core.js.map?rel=1496993000274
