@@ -258,5 +258,5 @@
 
 ;; (corner-split (macros/painter "canvas" george) 5)
 
-;; (square-limit (macros/painter "canvas" george) 5)
+(square-limit (macros/painter "canvas" george) 5)
                                       

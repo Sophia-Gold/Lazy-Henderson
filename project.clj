@@ -42,6 +42,7 @@
                {:id "min"
                 :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/Lazy_Henderson.js"
+                           :main Lazy-Henderson.core
                            :optimizations :advanced
                            :pretty-print false}}]}
 

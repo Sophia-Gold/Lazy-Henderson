@@ -1,4 +1,4 @@
-(defproject Lazy-Henderson "0.1.0"
+(defproject Lazy-Henderson "0.2.0"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
@@ -43,6 +43,7 @@
                {:id "min"
                 :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/Lazy_Henderson.js"
+                           :main Lazy-Henderson.core
                            :optimizations :advanced
                            :pretty-print false}}]}
 
