@@ -48,3 +48,9 @@ George on a recursive mindtrip from having to actually implement Abelson & Sussm
 ```
 
 ![Recursive George](https://github.com/Sophia-Gold/Lazy-Henderson.cljs/blob/master/square-limit.jpg)
+
+---
+
+_Canvas version hosted [here](http://sretaeper.ucoz.com/henderson/index.html)._
+
+_Nascent [Om.Next](https://github.com/omcljs/om) version hosted [here](http://sretaeper.ucoz.com/henderson/om/index.html)._
